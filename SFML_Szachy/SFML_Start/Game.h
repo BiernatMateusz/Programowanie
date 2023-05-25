@@ -10,6 +10,7 @@
 #include <cstdlib>
 #include <time.h>
 #include "Szachownica.h"
+#include "PiecesMovement.h"
 
 
 class Game
@@ -20,11 +21,16 @@ private:
 	sf::Event sfEvent;
 	Szachownica* szachownica;
 
+	
+
+
 	//Initialize
 	void initWindow();
 	void initSzachownica();
 
 public:
+	//Variables
+	sf::Vector2i MousePosition;
 
 	//Konstruktor
 	Game();

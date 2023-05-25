@@ -32,11 +32,43 @@ void Game::updateSfEvents()
         if (this->sfEvent.type == sf::Event::Closed)
             this->window->close();
     }
+
+    if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+    {
+        
+        this->MousePosition = szachownica->piecesMov->getMousePos1(window);
+
+        if (szachownica->OneOfPiecesGrabbed==0)
+        {
+            szachownica->piecesMov->GrabbingPiece(szachownica->Plansza, MousePosition, szachownica->OneOfPiecesGrabbed,szachownica->HoldedPiece);
+        }
+    }
+    else 
+    { 
+        szachownica->OneOfPiecesGrabbed = 0; 
+        szachownica->notGrabbed();
+
+        if (szachownica->HoldedPiece != nullptr)
+        {
+        szachownica->piecesMov->newPositionOfPiece(MousePosition, szachownica->Plansza, szachownica->HoldedPiece, szachownica->WhichColorTurn,szachownica->EnPaisPawn); 
+        //+++CO JEZELI POZA PLANSZA 
+        //+++SPRAWDZIC CZY JEST MOZLIWOSC PRZESTAWIENIA TAM FIGURY
+        //ZASADY!!
+        //PRZENOSZONY PIONEK POWINIEN MIEC GRAFIKE "NA WIERZCHU"
+        //+++Klikniecie pionka omija ruch gracza
+
+        }
+    }
+
+    
+
 }
 
 void Game::update()
 {
     this->updateSfEvents();
+
+    
 }
 
 void Game::render()
@@ -47,6 +79,7 @@ void Game::render()
     //Render items
 
     szachownica->renderBoard(window);
+    szachownica->renderPieces(window, this->MousePosition);
     this->window->display();
 }
 
@@ -56,6 +89,7 @@ void Game::run()
     {
         this->update();
         this->render();
+
     }    
 }
 
