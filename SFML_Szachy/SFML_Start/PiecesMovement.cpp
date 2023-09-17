@@ -184,7 +184,7 @@ bool PiecesMovement::pawnMove(std::vector<std::vector<Figura*>> &Plansza, Figura
                 HoldedPiece->Nazwa = "H";
 
     }
-    std::cout << "Sprawdzam pionka" << mousePos.x << " "<< mousePos.y << std::endl;
+//std::cout << "Sprawdzam pionka" << mousePos.x << " "<< mousePos.y << std::endl;
     return availableMove;
 }
 
@@ -234,7 +234,7 @@ bool PiecesMovement::kingMove(std::vector<std::vector<Figura*>> &Plansza, Figura
         }
     }
 
-    std::cout << "Sprawdzam krola" << std::endl;
+    //std::cout << "Sprawdzam krola" << std::endl;
     return availableMove;
 }
 
@@ -249,7 +249,7 @@ bool PiecesMovement::queenMove(std::vector<std::vector<Figura*>> &Plansza, Figur
     {
         if (mousePos.x - HoldedPiece->posX == mousePos.y - HoldedPiece->posY and mousePos.y - HoldedPiece->posY > 0) //up right
         {
-            std::cout << "Sprawdzam: " << mousePos.x - HoldedPiece->posX << " i " << mousePos.y - HoldedPiece->posY << std::endl;
+            //std::cout << "Sprawdzam: " << mousePos.x - HoldedPiece->posX << " i " << mousePos.y - HoldedPiece->posY << std::endl;
 
             for (int SquareX = HoldedPiece->posX + 1, SquareY = HoldedPiece->posY + 1; SquareX < mousePos.x + 1; ++SquareX, ++SquareY)
             {
@@ -274,7 +274,7 @@ bool PiecesMovement::queenMove(std::vector<std::vector<Figura*>> &Plansza, Figur
         if (HoldedPiece->posX - mousePos.x == mousePos.y - HoldedPiece->posY and mousePos.y - HoldedPiece->posY > 0) //up left
         {
 
-            std::cout << "Sprawdzam: " << HoldedPiece->posX - 1 << " i " << mousePos.x << std::endl;
+            //std::cout << "Sprawdzam: " << HoldedPiece->posX - 1 << " i " << mousePos.x << std::endl;
 
             for (int SquareX = HoldedPiece->posX - 1, SquareY = HoldedPiece->posY + 1; SquareX >= mousePos.x; --SquareX, ++SquareY)
             {
@@ -299,7 +299,7 @@ bool PiecesMovement::queenMove(std::vector<std::vector<Figura*>> &Plansza, Figur
         if (HoldedPiece->posX - mousePos.x == HoldedPiece->posY - mousePos.y and mousePos.y - HoldedPiece->posY < 0) //down left
         {
 
-            std::cout << "Sprawdzam3: " << HoldedPiece->posX - 1 << " i " << mousePos.y << std::endl;
+            //std::cout << "Sprawdzam3: " << HoldedPiece->posX - 1 << " i " << mousePos.y << std::endl;
 
             for (int SquareX = HoldedPiece->posX - 1, SquareY = HoldedPiece->posY - 1; SquareX >= mousePos.x; --SquareX, --SquareY)
             {
@@ -323,7 +323,7 @@ bool PiecesMovement::queenMove(std::vector<std::vector<Figura*>> &Plansza, Figur
 
         if (mousePos.x - HoldedPiece->posX == HoldedPiece->posY - mousePos.y and mousePos.y - HoldedPiece->posY < 0) //down right
         {
-            std::cout << "Sprawdzam4: " << mousePos.x - HoldedPiece->posX << " i " << mousePos.y - HoldedPiece->posY << std::endl;
+            //std::cout << "Sprawdzam4: " << mousePos.x - HoldedPiece->posX << " i " << mousePos.y - HoldedPiece->posY << std::endl;
 
             for (int SquareX = HoldedPiece->posX + 1, SquareY = HoldedPiece->posY - 1; SquareX < mousePos.x + 1; ++SquareX, --SquareY)
             {
@@ -419,7 +419,7 @@ bool PiecesMovement::queenMove(std::vector<std::vector<Figura*>> &Plansza, Figur
 
     }
 
-    std::cout << "Sprawdzam hetmana" << std::endl;
+    //std::cout << "Sprawdzam hetmana" << std::endl;
     return availableMove;
 }
 
@@ -434,7 +434,7 @@ bool PiecesMovement::knightMove(std::vector<std::vector<Figura*>> &Plansza, Figu
     if ((abs(mousePos.x - HoldedPiece->posX) == 2 and abs(mousePos.y - HoldedPiece->posY) == 1) or (abs(mousePos.x - HoldedPiece->posX) == 1 and abs(mousePos.y - HoldedPiece->posY) == 2))
         availableMove = true;
 
-    std::cout << "Sprawdzam skoczka" << std::endl;
+    //std::cout << "Sprawdzam skoczka" << std::endl;
     return availableMove;
 }
 
@@ -449,7 +449,7 @@ bool PiecesMovement::bishopMove(std::vector<std::vector<Figura*>> &Plansza, Figu
     {
         if (mousePos.x - HoldedPiece->posX == mousePos.y - HoldedPiece->posY and mousePos.y - HoldedPiece->posY > 0) //up right
         {
-            std::cout << "Sprawdzam: " << mousePos.x - HoldedPiece->posX << " i " << mousePos.y - HoldedPiece->posY << std::endl;
+            //std::cout << "Sprawdzam: " << mousePos.x - HoldedPiece->posX << " i " << mousePos.y - HoldedPiece->posY << std::endl;
             
             for (int SquareX = HoldedPiece->posX+1, SquareY = HoldedPiece->posY+1; SquareX < mousePos.x+1; ++SquareX, ++SquareY)
             {
@@ -474,7 +474,7 @@ bool PiecesMovement::bishopMove(std::vector<std::vector<Figura*>> &Plansza, Figu
         if (HoldedPiece->posX - mousePos.x == mousePos.y - HoldedPiece->posY and mousePos.y - HoldedPiece->posY > 0) //up left
         {
 
-            std::cout << "Sprawdzam: " << HoldedPiece->posX - 1 << " i " << mousePos.x << std::endl;
+            //std::cout << "Sprawdzam: " << HoldedPiece->posX - 1 << " i " << mousePos.x << std::endl;
 
             for (int SquareX = HoldedPiece->posX -1, SquareY = HoldedPiece->posY + 1; SquareX >= mousePos.x ; --SquareX, ++SquareY)
             {
@@ -499,7 +499,7 @@ bool PiecesMovement::bishopMove(std::vector<std::vector<Figura*>> &Plansza, Figu
         if (HoldedPiece->posX - mousePos.x ==  HoldedPiece->posY - mousePos.y and mousePos.y - HoldedPiece->posY < 0) //down left
         {
 
-            std::cout << "Sprawdzam3: " << HoldedPiece->posX - 1 << " i " << mousePos.y << std::endl;
+            //std::cout << "Sprawdzam3: " << HoldedPiece->posX - 1 << " i " << mousePos.y << std::endl;
 
             for (int SquareX = HoldedPiece->posX - 1, SquareY = HoldedPiece->posY - 1; SquareX >= mousePos.x; --SquareX, --SquareY)
             {
@@ -523,7 +523,7 @@ bool PiecesMovement::bishopMove(std::vector<std::vector<Figura*>> &Plansza, Figu
 
         if (mousePos.x - HoldedPiece->posX == HoldedPiece->posY - mousePos.y and mousePos.y - HoldedPiece->posY < 0) //down right
         {
-            std::cout << "Sprawdzam4: " << mousePos.x - HoldedPiece->posX << " i " << mousePos.y - HoldedPiece->posY << std::endl;
+            //std::cout << "Sprawdzam4: " << mousePos.x - HoldedPiece->posX << " i " << mousePos.y - HoldedPiece->posY << std::endl;
 
             for (int SquareX = HoldedPiece->posX + 1, SquareY = HoldedPiece->posY - 1; SquareX < mousePos.x + 1; ++SquareX, --SquareY)
             {
@@ -547,7 +547,7 @@ bool PiecesMovement::bishopMove(std::vector<std::vector<Figura*>> &Plansza, Figu
 
     }
 
-    std::cout << "Sprawdzam gonca" << std::endl;
+    //std::cout << "Sprawdzam gonca" << std::endl;
     return availableMove;
 }
 
@@ -631,7 +631,7 @@ bool PiecesMovement::rookMove(std::vector<std::vector<Figura*>> &Plansza, Figura
        
     }
 
-    std::cout << "Sprawdzam wieze" << std::endl;
+    //std::cout << "Sprawdzam wieze" << std::endl;
     return availableMove;
 }
 
@@ -676,8 +676,8 @@ bool PiecesMovement::LookingForCheck(std::vector<std::vector<Figura*>>& Plansza,
                     }
 
 
-    std::cout <<" Bialy krolewicz: " << WhiteK.posX << " " << WhiteK.posY << std::endl;
-    std::cout << " Czarny krolewicz: " << BlackK.posX << " " << BlackK.posY << std::endl;
+    //std::cout <<" Bialy krolewicz: " << WhiteK.posX << " " << WhiteK.posY << std::endl;
+    //std::cout << " Czarny krolewicz: " << BlackK.posX << " " << BlackK.posY << std::endl;
 
 
     //King cant face each other
@@ -685,7 +685,7 @@ bool PiecesMovement::LookingForCheck(std::vector<std::vector<Figura*>>& Plansza,
     if ((abs(WhiteK.posX - BlackK.posX) == 1 and abs(WhiteK.posY - BlackK.posY) == 1) or (abs(WhiteK.posX - BlackK.posX) == 0 and abs(WhiteK.posY - BlackK.posY) == 1) or (abs(WhiteK.posX - BlackK.posX) == 1 and abs(WhiteK.posY - BlackK.posY) == 0))
     {
         legalMove = false;
-        std::cout << "Nielegal" << std::endl;
+        //std::cout << "Nielegal" << std::endl;
     }
 
     //Facing pawn
@@ -700,7 +700,7 @@ bool PiecesMovement::LookingForCheck(std::vector<std::vector<Figura*>>& Plansza,
                     if ((Plansza[WhiteK.posX - 1][WhiteK.posY + 1]->nazwaFigury() == "P" and Plansza[WhiteK.posX - 1][WhiteK.posY + 1]->kolorGet() == 1))
                     {
                         legalMove = false;
-                        std::cout << "Nielegal" << std::endl;
+                        //std::cout << "Nielegal" << std::endl;
                     }
                 }
                 else if (Plansza[WhiteK.posX + 1][WhiteK.posY + 1] != nullptr)
@@ -708,7 +708,7 @@ bool PiecesMovement::LookingForCheck(std::vector<std::vector<Figura*>>& Plansza,
                     if ((Plansza[WhiteK.posX + 1][WhiteK.posY + 1]->nazwaFigury() == "P" and Plansza[WhiteK.posX + 1][WhiteK.posY + 1]->kolorGet() == 1))
                     {
                         legalMove = false;
-                        std::cout << "Nielegal" << std::endl;
+                        //std::cout << "Nielegal" << std::endl;
                     }
                 }
             }
@@ -726,7 +726,7 @@ bool PiecesMovement::LookingForCheck(std::vector<std::vector<Figura*>>& Plansza,
                     if ((Plansza[BlackK.posX - 1][BlackK.posY - 1]->nazwaFigury() == "P" and Plansza[BlackK.posX - 1][BlackK.posY - 1]->kolorGet() == 0))
                     {
                         legalMove = false;
-                        std::cout << "Nielegal" << std::endl;
+                        //std::cout << "Nielegal" << std::endl;
                     }
                 }
                 else if (Plansza[BlackK.posX + 1][BlackK.posY - 1] != nullptr)
@@ -734,7 +734,7 @@ bool PiecesMovement::LookingForCheck(std::vector<std::vector<Figura*>>& Plansza,
                     if ((Plansza[BlackK.posX + 1][BlackK.posY - 1]->nazwaFigury() == "P" and Plansza[BlackK.posX + 1][BlackK.posY - 1]->kolorGet() == 0))
                     {
                         legalMove = false;
-                        std::cout << "Nielegal" << std::endl;
+                        //std::cout << "Nielegal" << std::endl;
                     }
                 }
             }
@@ -749,7 +749,7 @@ bool PiecesMovement::LookingForCheck(std::vector<std::vector<Figura*>>& Plansza,
                 if ((Plansza[WhiteK.posX - 1][WhiteK.posY -2]->nazwaFigury() == "S" and Plansza[WhiteK.posX - 1][WhiteK.posY -2]->kolorGet() == 1))
                 {
                     legalMove = false;
-                    std::cout << "Nielegal" << std::endl;
+                    //std::cout << "Nielegal" << std::endl;
                 }
             }
             if (WhiteK.posX > 1 and WhiteK.posX < 8 and WhiteK.posY > 0 and WhiteK.posY < 8)
@@ -758,7 +758,7 @@ bool PiecesMovement::LookingForCheck(std::vector<std::vector<Figura*>>& Plansza,
                 if ((Plansza[WhiteK.posX - 2][WhiteK.posY - 1]->nazwaFigury() == "S" and Plansza[WhiteK.posX - 2][WhiteK.posY - 1]->kolorGet() == 1))
                 {
                     legalMove = false;
-                    std::cout << "Nielegal" << std::endl;
+                    //std::cout << "Nielegal" << std::endl;
                 }
             }
             if (WhiteK.posX > 0 and WhiteK.posX < 8 and WhiteK.posY >=0 and WhiteK.posY < 6)
@@ -767,7 +767,7 @@ bool PiecesMovement::LookingForCheck(std::vector<std::vector<Figura*>>& Plansza,
                 if ((Plansza[WhiteK.posX - 1][WhiteK.posY + 2]->nazwaFigury() == "S" and Plansza[WhiteK.posX - 1][WhiteK.posY + 2]->kolorGet() == 1))
                 {
                     legalMove = false;
-                    std::cout << "Nielegal" << std::endl;
+                    //std::cout << "Nielegal" << std::endl;
                 }
             }
             if (WhiteK.posX >= 0 and WhiteK.posX < 6 and WhiteK.posY > 0 and WhiteK.posY < 8)
@@ -776,7 +776,7 @@ bool PiecesMovement::LookingForCheck(std::vector<std::vector<Figura*>>& Plansza,
                 if ((Plansza[WhiteK.posX + 2][WhiteK.posY - 1]->nazwaFigury() == "S" and Plansza[WhiteK.posX + 2][WhiteK.posY - 1]->kolorGet() == 1))
                 {
                     legalMove = false;
-                    std::cout << "Nielegal" << std::endl;
+                    //std::cout << "Nielegal" << std::endl;
                 }
             }
             if (WhiteK.posX >= 0 and WhiteK.posX < 7 and WhiteK.posY > 1 and WhiteK.posY < 8)
@@ -785,7 +785,7 @@ bool PiecesMovement::LookingForCheck(std::vector<std::vector<Figura*>>& Plansza,
                 if ((Plansza[WhiteK.posX + 1][WhiteK.posY - 2]->nazwaFigury() == "S" and Plansza[WhiteK.posX + 1][WhiteK.posY - 2]->kolorGet() == 1))
                 {
                     legalMove = false;
-                    std::cout << "Nielegal" << std::endl;
+                    //std::cout << "Nielegal" << std::endl;
                 }
             }
             if (WhiteK.posX > 1 and WhiteK.posX < 8 and WhiteK.posY >= 0 and WhiteK.posY < 7)
@@ -794,7 +794,7 @@ bool PiecesMovement::LookingForCheck(std::vector<std::vector<Figura*>>& Plansza,
                 if ((Plansza[WhiteK.posX - 2][WhiteK.posY + 1]->nazwaFigury() == "S" and Plansza[WhiteK.posX - 2][WhiteK.posY + 1]->kolorGet() == 1))
                 {
                     legalMove = false;
-                    std::cout << "Nielegal" << std::endl;
+                   // std::cout << "Nielegal" << std::endl;
                 }
             }
             if (WhiteK.posX >= 0 and WhiteK.posX < 7 and WhiteK.posY >= 0 and WhiteK.posY < 6)
@@ -803,7 +803,7 @@ bool PiecesMovement::LookingForCheck(std::vector<std::vector<Figura*>>& Plansza,
                 if ((Plansza[WhiteK.posX + 1][WhiteK.posY + 2]->nazwaFigury() == "S" and Plansza[WhiteK.posX + 1][WhiteK.posY + 2]->kolorGet() == 1))
                 {
                     legalMove = false;
-                    std::cout << "Nielegal" << std::endl;
+                    //std::cout << "Nielegal" << std::endl;
                 }
             }
             if (WhiteK.posX >= 0 and WhiteK.posX < 6 and WhiteK.posY >= 0 and WhiteK.posY < 7)
@@ -812,7 +812,7 @@ bool PiecesMovement::LookingForCheck(std::vector<std::vector<Figura*>>& Plansza,
                 if ((Plansza[WhiteK.posX + 2][WhiteK.posY + 1]->nazwaFigury() == "S" and Plansza[WhiteK.posX + 2][WhiteK.posY + 1]->kolorGet() == 1))
                 {
                     legalMove = false;
-                    std::cout << "Nielegal" << std::endl;
+                    //std::cout << "Nielegal" << std::endl;
                 }
             }
 
@@ -828,7 +828,7 @@ bool PiecesMovement::LookingForCheck(std::vector<std::vector<Figura*>>& Plansza,
                 if ((Plansza[BlackK.posX - 1][BlackK.posY - 2]->nazwaFigury() == "S" and Plansza[BlackK.posX - 1][BlackK.posY - 2]->kolorGet() == 0))
                 {
                     legalMove = false;
-                    std::cout << "Nielegal" << std::endl;
+                    //std::cout << "Nielegal" << std::endl;
                 }
             }
         if (BlackK.posX > 1 and BlackK.posX < 8 and BlackK.posY > 0 and BlackK.posY < 8)
@@ -837,7 +837,7 @@ bool PiecesMovement::LookingForCheck(std::vector<std::vector<Figura*>>& Plansza,
                 if ((Plansza[BlackK.posX - 2][BlackK.posY - 1]->nazwaFigury() == "S" and Plansza[BlackK.posX - 2][BlackK.posY - 1]->kolorGet() == 0))
                 {
                     legalMove = false;
-                    std::cout << "Nielegal" << std::endl;
+                    //std::cout << "Nielegal" << std::endl;
                 }
             }
         if (BlackK.posX > 0 and BlackK.posX < 8 and BlackK.posY >= 0 and BlackK.posY < 6)
@@ -846,7 +846,7 @@ bool PiecesMovement::LookingForCheck(std::vector<std::vector<Figura*>>& Plansza,
                 if ((Plansza[BlackK.posX - 1][BlackK.posY + 2]->nazwaFigury() == "S" and Plansza[BlackK.posX - 1][BlackK.posY + 2]->kolorGet() == 0))
                 {
                     legalMove = false;
-                    std::cout << "Nielegal" << std::endl;
+                    //std::cout << "Nielegal" << std::endl;
                 }
             }
         if (BlackK.posX >= 0 and BlackK.posX < 6 and BlackK.posY > 0 and BlackK.posY < 8)
@@ -855,7 +855,7 @@ bool PiecesMovement::LookingForCheck(std::vector<std::vector<Figura*>>& Plansza,
                 if ((Plansza[BlackK.posX + 2][BlackK.posY - 1]->nazwaFigury() == "S" and Plansza[BlackK.posX + 2][BlackK.posY - 1]->kolorGet() == 0))
                 {
                     legalMove = false;
-                    std::cout << "Nielegal" << std::endl;
+                    //std::cout << "Nielegal" << std::endl;
                 }
             }
         if (BlackK.posX >= 0 and BlackK.posX < 7 and BlackK.posY > 1 and BlackK.posY < 8)
@@ -864,7 +864,7 @@ bool PiecesMovement::LookingForCheck(std::vector<std::vector<Figura*>>& Plansza,
                 if ((Plansza[BlackK.posX + 1][BlackK.posY - 2]->nazwaFigury() == "S" and Plansza[BlackK.posX + 1][BlackK.posY - 2]->kolorGet() == 0))
                 {
                     legalMove = false;
-                    std::cout << "Nielegal" << std::endl;
+                   // std::cout << "Nielegal" << std::endl;
                 }
             }
         if (BlackK.posX > 1 and BlackK.posX < 8 and BlackK.posY >= 0 and BlackK.posY < 7)
@@ -873,7 +873,7 @@ bool PiecesMovement::LookingForCheck(std::vector<std::vector<Figura*>>& Plansza,
                 if ((Plansza[BlackK.posX - 2][BlackK.posY + 1]->nazwaFigury() == "S" and Plansza[BlackK.posX - 2][BlackK.posY + 1]->kolorGet() == 0))
                 {
                     legalMove = false;
-                    std::cout << "Nielegal" << std::endl;
+                    //std::cout << "Nielegal" << std::endl;
                 }
             }
         if (BlackK.posX >= 0 and BlackK.posX < 7 and BlackK.posY >= 0 and BlackK.posY < 6)
@@ -882,7 +882,7 @@ bool PiecesMovement::LookingForCheck(std::vector<std::vector<Figura*>>& Plansza,
                 if ((Plansza[BlackK.posX + 1][BlackK.posY + 2]->nazwaFigury() == "S" and Plansza[BlackK.posX + 1][BlackK.posY + 2]->kolorGet() == 0))
                 {
                     legalMove = false;
-                    std::cout << "Nielegal" << std::endl;
+                    //std::cout << "Nielegal" << std::endl;
                 }
             }
         if (BlackK.posX >= 0 and BlackK.posX < 6 and BlackK.posY >= 0 and BlackK.posY < 7)
@@ -891,7 +891,7 @@ bool PiecesMovement::LookingForCheck(std::vector<std::vector<Figura*>>& Plansza,
                 if ((Plansza[BlackK.posX + 2][BlackK.posY + 1]->nazwaFigury() == "S" and Plansza[BlackK.posX + 2][BlackK.posY + 1]->kolorGet() == 0))
                 {
                     legalMove = false;
-                    std::cout << "Nielegal" << std::endl;
+                    //std::cout << "Nielegal" << std::endl;
                 }
             }
 
@@ -938,11 +938,11 @@ bool PiecesMovement::LookingForCheck(std::vector<std::vector<Figura*>>& Plansza,
         {
             if (Plansza[Square][WhiteK.posY] != nullptr)
             {
-                std::cout << "Sprawdzam lewo nr:  " << Square << std::endl;
+                //std::cout << "Sprawdzam lewo nr:  " << Square << std::endl;
 
                 if (Plansza[Square][WhiteK.posY]->kolorGet() == 1 and (Plansza[Square][WhiteK.posY]->nazwaFigury() == "W" or (Plansza[Square][WhiteK.posY]->nazwaFigury() == "H")))
                 {
-                    std::cout << "Widze czarnego:  " << Plansza[Square][WhiteK.posY]->posX << "  " << Plansza[Square][WhiteK.posY]->posY << " figura to: " << Plansza[Square][WhiteK.posY]->nazwaFigury() << std::endl;
+                    //std::cout << "Widze czarnego:  " << Plansza[Square][WhiteK.posY]->posX << "  " << Plansza[Square][WhiteK.posY]->posY << " figura to: " << Plansza[Square][WhiteK.posY]->nazwaFigury() << std::endl;
                     legalMove = false;
                 }
                 break;
@@ -953,11 +953,11 @@ bool PiecesMovement::LookingForCheck(std::vector<std::vector<Figura*>>& Plansza,
         {
             if (Plansza[Square][WhiteK.posY] != nullptr)
             {
-                std::cout << "Sprawdzam prawo nr:  " << Square << std::endl;
+                //std::cout << "Sprawdzam prawo nr:  " << Square << std::endl;
 
                 if (Plansza[Square][WhiteK.posY]->kolorGet() == 1 and (Plansza[Square][WhiteK.posY]->nazwaFigury() == "W" or (Plansza[Square][WhiteK.posY]->nazwaFigury() == "H")))
                 {
-                    std::cout << "Widze czarnego:  " << Plansza[Square][WhiteK.posY]->posX << "  " << Plansza[Square][WhiteK.posY]->posY << " figura to: " << Plansza[Square][WhiteK.posY]->nazwaFigury() << std::endl;
+                    //std::cout << "Widze czarnego:  " << Plansza[Square][WhiteK.posY]->posX << "  " << Plansza[Square][WhiteK.posY]->posY << " figura to: " << Plansza[Square][WhiteK.posY]->nazwaFigury() << std::endl;
                     legalMove = false;
                 }
                 break;
