@@ -1,2 +1,7 @@
+<<<<<<< HEAD
 PlatformToolSet=v143:VCToolArchitecture=Native64Bit:VCToolsVersion=14.37.32822:TargetPlatformVersion=10.0.22621.0:
 Debug|x64|C:\Users\matib\source\repos\GITHUB\Programowanie\SFML_Szachy\|
+=======
+PlatformToolSet=v143:VCToolArchitecture=Native64Bit:VCToolsVersion=14.35.32215:TargetPlatformVersion=10.0.22000.0:
+Debug|x64|C:\Users\mbiernat\source\repos\SFML_Szachy\|
+>>>>>>> 62aa2c46b80bd51f4099328a85205c0098f2123f

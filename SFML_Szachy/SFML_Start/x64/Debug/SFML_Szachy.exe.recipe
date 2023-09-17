@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project>
   <ProjectOutputs>
@@ -8,4 +9,16 @@
   <ContentFiles />
   <SatelliteDlls />
   <NonRecipeFileRefs />
+=======
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project>
+  <ProjectOutputs>
+    <ProjectOutput>
+      <FullPath>C:\Users\mbiernat\source\repos\SFML_Szachy\x64\Debug\SFML_Szachy.exe</FullPath>
+    </ProjectOutput>
+  </ProjectOutputs>
+  <ContentFiles />
+  <SatelliteDlls />
+  <NonRecipeFileRefs />
+>>>>>>> 62aa2c46b80bd51f4099328a85205c0098f2123f
 </Project>
