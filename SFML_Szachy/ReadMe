@@ -1,0 +1,10 @@
+Gra szachy napisana przy wykorzystaniu biblioteki graficznej SFML.
+Wystepuje podział na klasy takie jak chessboard, figury, piecesMovement
+Dodane wszystkie zasady - ruchy poszczególnych figur, bicia itd. 
+
+ToDo:
+Koniec gry (W momencie gdy nie ma już ruchów - mat) po prostu nie można się ruszyć jednak nie pojawia się informacja o zwycięstwie gracza
+Brak wroga - Nie został napisany silnik, który mógłby być rywalem
+Mozliwość obracania planszy
+Dodanie menu - wybór koloru 
+Dodanie archiwizacji gier 
