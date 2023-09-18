@@ -6,7 +6,8 @@ ChessBoard::ChessBoard()
 	initChessBoard();
 	initPiecesGraphics();
 	initPiecesMov();
-	this->HoldedPiece = nullptr;
+	initVariables();
+	
 }
 
 
@@ -214,6 +215,13 @@ void ChessBoard::initPiecesMov()
 	this->piecesMov = new PiecesMovement;
 }
 
+void ChessBoard::initVariables()
+{
+	this->HoldedPiece = nullptr;
+	this->OneOfPiecesGrabbed = 0 ;
+	this->WhichColorTurn = 1 ;
+}
+
 void ChessBoard::notGrabbed()
 {
 	for (int i=0; i<8;++i)
@@ -224,6 +232,28 @@ void ChessBoard::notGrabbed()
 		}
 	this->OneOfPiecesGrabbed = 0;
 }
+
+Figura*& ChessBoard::HoldedPieceFF()
+{
+	return this->HoldedPiece;
+}
+
+PiecesMovement* ChessBoard::piecesMove()
+{
+	return this->piecesMov;
+}
+
+bool& ChessBoard::OneOfPiecesGrabbedF()
+{
+	return this->OneOfPiecesGrabbed;
+}
+
+bool& ChessBoard::WhichColorTurnF()
+{
+	return this->WhichColorTurn;
+}
+
+
 
 
 

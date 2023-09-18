@@ -1,3 +1,10 @@
 ﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(531,5): warning MSB8028: Katalog pośredni (x64\Debug\) zawiera pliki udostępnione z innego projektu (SFML_Start.vcxproj). Może to spowodować niepoprawne zachowanie podczas oczyszczania i ponownej kompilacji.
-  PiecesMovement.cpp
+  ChessBoard.cpp
+C:\Users\matib\source\repos\GITHUB\Programowanie\SFML_Szachy\SFML_Start\ChessBoard.cpp(205,74): warning C4244: "argument": konwersja z "int" do "float", możliwa utrata danych
+C:\Users\matib\source\repos\GITHUB\Programowanie\SFML_Szachy\SFML_Start\ChessBoard.cpp(205,53): warning C4244: "argument": konwersja z "int" do "float", możliwa utrata danych
+C:\Users\matib\source\repos\GITHUB\Programowanie\SFML_Szachy\SFML_Start\ChessBoard.cpp(207,73): warning C4244: "argument": konwersja z "int" do "float", możliwa utrata danych
+C:\Users\matib\source\repos\GITHUB\Programowanie\SFML_Szachy\SFML_Start\ChessBoard.cpp(207,58): warning C4244: "argument": konwersja z "int" do "float", możliwa utrata danych
+  Game.cpp
+  SFML_Start.cpp
+  Generowanie kodu...
   SFML_Start.vcxproj -> C:\Users\matib\source\repos\GITHUB\Programowanie\SFML_Szachy\x64\Debug\SFML_Szachy.exe

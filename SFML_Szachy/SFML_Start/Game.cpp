@@ -36,20 +36,20 @@ void Game::updateSfEvents()
     if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
     {
         
-        this->MousePosition = chessBoard->piecesMov->getMousePos1(window);
+        this->MousePosition = chessBoard->piecesMove()->getMousePos1(window);
 
-        if (chessBoard->OneOfPiecesGrabbed==0)
+        if (chessBoard->OneOfPiecesGrabbedF() == 0)
         {
-            chessBoard->piecesMov->GrabbingPiece(chessBoard->Plansza, MousePosition, chessBoard->OneOfPiecesGrabbed,chessBoard->HoldedPiece);
+            chessBoard->piecesMove()->GrabbingPiece(chessBoard->Plansza, MousePosition, chessBoard->OneOfPiecesGrabbedF(), chessBoard->HoldedPieceFF());
         }
     }
     else 
     { 
         chessBoard->notGrabbed();
 
-        if (chessBoard->HoldedPiece != nullptr)
+        if (chessBoard->HoldedPieceFF() != nullptr)
         {
-        chessBoard->piecesMov->newPositionOfPiece(MousePosition, chessBoard->Plansza, chessBoard->HoldedPiece, chessBoard->WhichColorTurn,chessBoard->EnPaisPawn); 
+        chessBoard->piecesMove()->newPositionOfPiece(MousePosition, chessBoard->Plansza, chessBoard->HoldedPieceFF(), chessBoard->WhichColorTurnF(), chessBoard->EnPaisPawn);
         //PRZENOSZONY PIONEK POWINIEN MIEC GRAFIKE "NA WIERZCHU"
 
         }
