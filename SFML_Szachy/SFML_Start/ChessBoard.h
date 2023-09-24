@@ -48,6 +48,7 @@ public:
 	void rendPieces2(sf::RenderWindow* window,int posX,int posY, int WhichPiece, sf::Vector2i mousePos, bool isPieceGrabbed);
 	void notGrabbed();
 
+	//Reading private variables
 	Figura*& HoldedPieceFF();
 	PiecesMovement* piecesMove();
 	bool &OneOfPiecesGrabbedF();
