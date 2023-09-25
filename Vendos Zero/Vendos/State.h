@@ -13,7 +13,7 @@
 class State
 {
 private:
-	std::vector<sf::Texture>TextureVector;
+	
 	bool quit;
 	
 protected:
@@ -21,8 +21,9 @@ protected:
 	sf::Vector2i mousePosition;
 	std::stack<State*>* stat;
 
-	sf::Sprite GraphicsSprite;
+	std::vector<sf::Sprite*> GraphicsSprite;
 	sf::Texture GraphicsTxt;
+	std::vector<sf::Texture*>GraphicsTxtVec;
 public:
 	State(sf::RenderWindow* Window, std::stack<State*>* Stat);
 

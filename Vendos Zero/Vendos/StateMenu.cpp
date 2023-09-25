@@ -8,6 +8,11 @@ StateMenu::StateMenu(sf::RenderWindow* window, std::stack<State*>* Stat)
 
 StateMenu::~StateMenu()
 {
+	for (auto& elem : GraphicsSprite)
+		delete elem;
+	for (auto& elem : GraphicsTxtVec)
+		delete elem;
+
 
 }
 
@@ -39,8 +44,10 @@ void StateMenu::endState()
 
 void StateMenu::initGraphics()
 {
-	this->GraphicsTxt.loadFromFile("Texture/Menu.png");
-	this->GraphicsSprite.setTexture(this->GraphicsTxt);
+	this->GraphicsTxtVec.push_back(new sf::Texture);
+	this->GraphicsTxtVec.back()->loadFromFile("Texture/Menu.png");
+	GraphicsSprite.push_back(new sf::Sprite);
+	this->GraphicsSprite.back()->setTexture(*this->GraphicsTxtVec.back());
 }
 
 void StateMenu::update(const float& dt)
@@ -52,5 +59,6 @@ void StateMenu::update(const float& dt)
 
 void StateMenu::render(sf::RenderTarget* Window)
 {
-	Window->draw(this->GraphicsSprite);
+	for (auto& elem : GraphicsSprite)
+		window->draw(*elem);
 }
