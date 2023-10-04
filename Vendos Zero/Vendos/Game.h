@@ -2,7 +2,6 @@
 #define GAME
 
 #include <iostream>
-#include "Objects.h"
 #include "StateMenu.h"
 #include "StateSpawnPlace.h"
 #include <stack>

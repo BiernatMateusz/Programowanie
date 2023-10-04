@@ -9,6 +9,8 @@
 #include <string>
 #include <vector>
 #include <stack>
+#include "EntityPlayer.h"
+#include "Camera.h"
 
 class State
 {
@@ -16,16 +18,29 @@ private:
 	
 	bool quit;
 	
+	
 protected:
-	sf::RenderWindow* window;
 	sf::Vector2i mousePosition;
-	std::stack<State*>* stat;
+
+	sf::RenderWindow* window;
+
+	std::stack<State*> *stat;
+
+	std::vector<Entity*> entities;
+	std::vector<Entity*> *entiesPointer;
+	
+	Entity* NewEntity;
+	Camera* Camer;
 
 	std::vector<sf::Sprite*> GraphicsSprite;
+
+	std::vector<sf::Sprite*> SpritesEnti;
+	std::vector<sf::Sprite*> *SpritesEntiPointer;
+
 	sf::Texture GraphicsTxt;
 	std::vector<sf::Texture*>GraphicsTxtVec;
 public:
-	State(sf::RenderWindow* Window, std::stack<State*>* Stat);
+	State(sf::RenderWindow* Window, std::stack<State*> *Stat);
 
 	virtual ~State();
 
@@ -38,7 +53,7 @@ public:
 
 	virtual void initGraphics()=0;
 	virtual void update(const float& dt) = 0;
-	virtual void render(sf::RenderTarget* Window = nullptr)=0;
+	virtual void render(sf::RenderTarget* Window = nullptr)=0; 
 	virtual void checkForQuit();
 	virtual void endState()=0;
 };

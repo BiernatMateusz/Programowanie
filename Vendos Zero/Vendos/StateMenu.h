@@ -21,7 +21,7 @@ public:
 
     void initGraphics();
     void update(const float& dt);
-    void render(sf::RenderTarget* Window);
+    void render(sf::RenderTarget* Window); //need class - camera
 };
 
 #endif // !STATEMENU_H

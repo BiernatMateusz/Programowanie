@@ -23,7 +23,10 @@ void StateMenu::updateKeybinds(const float& dt)
 		if (this->checkExactPosition(316, 735, 288, 435))
 		{
 			std::cout << "1\n";
+			
 			stat->push(new StateSpawnPlace(window, this->stat));
+			
+			
 
 		}
 		if (this->checkExactPosition(350, 814, 580, 705))
@@ -48,6 +51,9 @@ void StateMenu::initGraphics()
 	this->GraphicsTxtVec.back()->loadFromFile("Texture/Menu.png");
 	GraphicsSprite.push_back(new sf::Sprite);
 	this->GraphicsSprite.back()->setTexture(*this->GraphicsTxtVec.back());
+
+
+	this->Camer = new Camera(&this->GraphicsSprite, window);
 }
 
 void StateMenu::update(const float& dt)
@@ -59,6 +65,5 @@ void StateMenu::update(const float& dt)
 
 void StateMenu::render(sf::RenderTarget* Window)
 {
-	for (auto& elem : GraphicsSprite)
-		window->draw(*elem);
+	Camer->render(window);
 }

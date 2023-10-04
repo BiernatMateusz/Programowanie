@@ -1,15 +1,19 @@
 #include "State.h"
 
-State::State(sf::RenderWindow* Window, std::stack<State*>* Stat)
+State::State(sf::RenderWindow* Window, std::stack<State*> *Stat)
 {
 	this->window = Window;
 	this->stat = Stat;
 	this->quit = false;
+	this->SpritesEntiPointer = &this->SpritesEnti;
+	this->entiesPointer = &this->entities;
+	
 }
 
 State::~State()
 {
 	delete window;
+	delete NewEntity;
 	std::cout << "Usunalem stat\n";
 }
 

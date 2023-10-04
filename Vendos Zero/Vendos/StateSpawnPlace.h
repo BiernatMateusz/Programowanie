@@ -6,7 +6,7 @@ class StateSpawnPlace :
     public State
 {
 private:
-
+    
 
 public:
     StateSpawnPlace(sf::RenderWindow* window, std::stack<State*>* Stat);
@@ -17,6 +17,7 @@ public:
     void endState();
 
     void initGraphics();
+    void initPlayer();
 
     void update(const float& dt);
     void render(sf::RenderTarget* Window);
