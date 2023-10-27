@@ -1,6 +1,8 @@
 #ifndef STATE_H
 #define STATE_H
 
+//Aby dodawac nowe grafiki nale¿y wejœæ do Game.cpp do funkcji initTextures i dopisaæ dolejne textury
+
 #include "SFML/Graphics.hpp"
 #include "SFML/Window.hpp"
 #include "SFML/System.hpp"
@@ -9,6 +11,9 @@
 #include <string>
 #include <vector>
 #include <stack>
+#include "EntityPlayer.h"
+#include "Camera.h"
+
 
 class State
 {
@@ -17,15 +22,32 @@ private:
 	bool quit;
 	
 protected:
-	sf::RenderWindow* window;
+
 	sf::Vector2i mousePosition;
-	std::stack<State*>* stat;
+
+	sf::RenderWindow* window;
+
+	std::stack<State*> *stat;
+
+	std::vector<Entity*> entities;
+	std::vector<Entity*> *entiesPointer;
+	
+	std::vector<std::vector<bool>>Blockade;
+	std::vector<std::vector<sf::Vector2f>>BlockadeDimension;
+
+	Entity* NewEntity;
+	Camera* Camer;
 
 	std::vector<sf::Sprite*> GraphicsSprite;
-	sf::Texture GraphicsTxt;
-	std::vector<sf::Texture*>GraphicsTxtVec;
+
+	std::vector<sf::Sprite*> SpritesEnti;
+	std::vector<sf::Sprite*> *SpritesEntiPointer;
+
+	std::vector<sf::Texture*>*GraphicsTxtPointer;
+	std::map<std::string, sf::Texture*>*TexturesMap;
+	
 public:
-	State(sf::RenderWindow* Window, std::stack<State*>* Stat);
+	State(sf::RenderWindow* Window, std::stack<State*> *Stat, std::map<std::string, sf::Texture*>*TexturesMap, std::vector<sf::Texture*>*GraphicsTxtVec);
 
 	virtual ~State();
 
@@ -38,9 +60,11 @@ public:
 
 	virtual void initGraphics()=0;
 	virtual void update(const float& dt) = 0;
-	virtual void render(sf::RenderTarget* Window = nullptr)=0;
+	virtual void render(sf::RenderTarget* Window = nullptr)=0; 
 	virtual void checkForQuit();
 	virtual void endState()=0;
+
+	void LoadNewGraph(sf::Vector2f&& position, std::string&& NameOfTxt);
 };
 
 #endif 

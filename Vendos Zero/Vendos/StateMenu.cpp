@@ -1,19 +1,15 @@
 #include "StateMenu.h"
 
-StateMenu::StateMenu(sf::RenderWindow* window, std::stack<State*>* Stat)
-	: State(window, Stat)
+StateMenu::StateMenu(sf::RenderWindow* window, std::stack<State*>* Stat, std::map<std::string, sf::Texture*>* TexturesMap, std::vector<sf::Texture*>* GraphicsTxtVecToP)
+	: State(window, Stat, TexturesMap, GraphicsTxtVecToP)
 {
 	initGraphics();
 }
 
 StateMenu::~StateMenu()
 {
-	for (auto& elem : GraphicsSprite)
+	for (auto* elem : GraphicsSprite)
 		delete elem;
-	for (auto& elem : GraphicsTxtVec)
-		delete elem;
-
-
 }
 
 void StateMenu::updateKeybinds(const float& dt)
@@ -23,7 +19,10 @@ void StateMenu::updateKeybinds(const float& dt)
 		if (this->checkExactPosition(316, 735, 288, 435))
 		{
 			std::cout << "1\n";
-			stat->push(new StateSpawnPlace(window, this->stat));
+			
+			stat->push(new StateSpawnPlace(window, this->stat, this->TexturesMap, this->GraphicsTxtPointer ));
+			
+			
 
 		}
 		if (this->checkExactPosition(350, 814, 580, 705))
@@ -42,12 +41,12 @@ void StateMenu::endState()
 	std::cout << "Ending Menustate\n";
 }
 
+
 void StateMenu::initGraphics()
 {
-	this->GraphicsTxtVec.push_back(new sf::Texture);
-	this->GraphicsTxtVec.back()->loadFromFile("Texture/Menu.png");
-	GraphicsSprite.push_back(new sf::Sprite);
-	this->GraphicsSprite.back()->setTexture(*this->GraphicsTxtVec.back());
+	LoadNewGraph({ 0,0 }, "Menu");
+
+	this->Camer = new Camera(&this->GraphicsSprite, window);
 }
 
 void StateMenu::update(const float& dt)
@@ -59,6 +58,5 @@ void StateMenu::update(const float& dt)
 
 void StateMenu::render(sf::RenderTarget* Window)
 {
-	for (auto& elem : GraphicsSprite)
-		window->draw(*elem);
+	Camer->render(window);
 }

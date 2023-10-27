@@ -1,3 +1,12 @@
 ﻿  StateSpawnPlace.cpp
-C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\Vendos\StateSpawnPlace.cpp(62,38): warning C4244: "argument": konwersja z "int" do "float", możliwa utrata danych
-  Vendos.vcxproj -> C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\x64\Debug\Vendos.exe
+C:\Users\mbiernat\source\repos\Vendos Zero\Vendos\StateSpawnPlace.cpp(54,8): warning C4244: "inicjowanie": konwersja z "T" do "int", możliwa utrata danych
+          with
+          [
+              T=float
+          ]
+C:\Users\mbiernat\source\repos\Vendos Zero\Vendos\StateSpawnPlace.cpp(55,8): warning C4244: "inicjowanie": konwersja z "T" do "int", możliwa utrata danych
+          with
+          [
+              T=float
+          ]
+  Vendos.vcxproj -> C:\Users\mbiernat\source\repos\Vendos Zero\x64\Debug\Vendos.exe

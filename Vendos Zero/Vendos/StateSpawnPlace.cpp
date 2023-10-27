@@ -1,22 +1,25 @@
 #include "StateSpawnPlace.h"
 
-StateSpawnPlace::StateSpawnPlace(sf::RenderWindow* window, std::stack<State*>* Stat)
-	: State(window, Stat)
+StateSpawnPlace::StateSpawnPlace(sf::RenderWindow* window, std::stack<State*>* Stat, std::map<std::string, sf::Texture*>* TexturesMap, std::vector<sf::Texture*>* GraphicsTxtVecToP)
+	: State(window, Stat, TexturesMap, GraphicsTxtVecToP)
 {
+	initPlayer();
 	initGraphics();
 }
 
 StateSpawnPlace::~StateSpawnPlace()
 {
-	for (auto& elem : GraphicsSprite)
-		delete elem;
-	for (auto& elem : GraphicsTxtVec)
+	for (auto* elem : GraphicsSprite)
 		delete elem;
 }
 
 void StateSpawnPlace::updateKeybinds(const float& dt)
 {
 	this->checkForQuit();
+	if (this->Camer->movementAll(dt,this->Blockade,this->BlockadeDimension,100))
+	{
+		this->Camer->sortVector();
+	};
 }
 
 void StateSpawnPlace::endState()
@@ -26,25 +29,33 @@ void StateSpawnPlace::endState()
 
 void StateSpawnPlace::initGraphics()
 {
-	//Map
-	this->GraphicsTxtVec.push_back(new sf::Texture);
-	this->GraphicsTxtVec.back()->loadFromFile("Texture/Mapka.png");
-	GraphicsSprite.push_back(new sf::Sprite);
-	this->GraphicsSprite.back()->setTexture(*this->GraphicsTxtVec.back());
+	LoadNewGraph({ 0,2596}, "Mapka");
 
-	//Tree
-	this->GraphicsTxtVec.push_back(new sf::Texture);
-	this->GraphicsTxtVec.back()->loadFromFile("Texture/Tree1.png");
-	GraphicsSprite.push_back(new sf::Sprite);
-	this->GraphicsSprite.back()->setTexture(*this->GraphicsTxtVec.back());
-	this->GraphicsSprite.back()->setPosition(308,88);
+	initBlockade();
+
+	LoadNewGraph({ 44 * 6, 44 * 13 }, "Tree1");
+
+	LoadNewGraph({ 44 * 7, 44 * 13 }, "Tree1");
+	LoadNewGraph({ 44 * 8, 44 * 13 }, "Tree1");
+
+
+
+	this->Camer = new Camera(&this->GraphicsSprite,this->SpritesEntiPointer,window);
+
+}
+
+void StateSpawnPlace::initPlayer()
+{
+	this->entiesPointer->push_back(new EntityPlayer({ 44*4,44*20}, "Abigail", SpritesEntiPointer,TexturesMap,window));
+}
+
+void StateSpawnPlace::initBlockade()
+{
+	int x = this->GraphicsSprite.back()->getGlobalBounds().width;
+	int y = this->GraphicsSprite.back()->getGlobalBounds().height;
 	
-	//TestSzer
-	this->GraphicsTxtVec.push_back(new sf::Texture);
-	this->GraphicsTxtVec.back()->loadFromFile("Texture/TestSzer.png");
-	GraphicsSprite.push_back(new sf::Sprite);
-	this->GraphicsSprite.back()->setTexture(*this->GraphicsTxtVec.back());
-	this->GraphicsSprite.back()->setPosition(308, 616);
+	this->Blockade.resize((x - (x % 44)) / 44, std::vector<bool>((y - (y % 44)) / 44));
+	this->BlockadeDimension.resize((x - (x % 44)) / 44, std::vector<sf::Vector2f>((y - (y % 44)) / 44));
 }
 
 void StateSpawnPlace::update(const float& dt)
@@ -55,11 +66,5 @@ void StateSpawnPlace::update(const float& dt)
 
 void StateSpawnPlace::render(sf::RenderTarget* Window)
 {
-	for (auto& elem : GraphicsSprite)
-		window->draw(*elem);
-	for (int i = 308; i < 800; i += 44)
-	{
-		GraphicsSprite.back()->setPosition(i, 616);
-		window->draw(*GraphicsSprite.back());
-	}
+	Camer->render(window);
 }

@@ -8,9 +8,11 @@ void Game::initializeWindow()
 	this->window->setKeyRepeatEnabled(false);
 }
 
+
 Game::Game()
 {
 	this->initializeWindow();
+	this->initTextures();
 	this->initStates();
 }
 
@@ -86,13 +88,34 @@ void Game::run()
 	}
 }
 
+void Game::LoadNewGraphic(std::string&& name)
+{
+	GraphicsTxtVec.push_back(new sf::Texture);
+	GraphicsTxtVec.back()->loadFromFile("Texture/" + name + ".png");
+	TexturesMap.insert(std::pair<std::string, sf::Texture*>(name, GraphicsTxtVec.back()));
+}
+
 void Game::initStates()
 {
-	this->states.push(new StateMenu(this->window, &this->states));
+	this->states.push(new StateMenu(this->window, &this->states, &this->TexturesMap, &this->GraphicsTxtVec ));
+}
+
+void Game::initTextures()
+{
+	LoadNewGraphic("Menu");
+	LoadNewGraphic("Mapka");
+	LoadNewGraphic("Abigail");
+	LoadNewGraphic("Tree1");
 }
 
 
 void Game::endApp()
 {
+
+	for (auto* elem : GraphicsTxtVec)
+		delete elem;
+	GraphicsTxtVec.clear();
+	TexturesMap.clear();
+
 	std::cout << "KONIEC\n";
 }

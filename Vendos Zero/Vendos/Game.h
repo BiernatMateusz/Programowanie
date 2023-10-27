@@ -2,10 +2,13 @@
 #define GAME
 
 #include <iostream>
-#include "Objects.h"
 #include "StateMenu.h"
 #include "StateSpawnPlace.h"
 #include <stack>
+
+//Aby dodawac nowe grafiki nale¿y wejœæ do Game.cpp do funkcji initTextures i dopisaæ dolejne textury
+
+
 class Game
 {
 
@@ -16,6 +19,10 @@ private:
 	sf::Event sfEvent;
 
 	sf::Clock dtClock;
+
+	std::vector<sf::Texture*>GraphicsTxtVec;
+	std::map<std::string, sf::Texture*>TexturesMap; //Do zrobienia
+
 	float dt;
 
 
@@ -25,7 +32,6 @@ private:
 
 	//init
 	void initializeWindow();
-
 public:
 	//Constructors
 	Game();
@@ -34,6 +40,7 @@ public:
 
 	//Init
 	void initStates();
+	void initTextures();
 
 	//functions
 	void endApp();
@@ -48,6 +55,8 @@ public:
 	void render();
 	void run();
 
+	//Additional functions
+	void LoadNewGraphic(std::string&& name);
 	
 
 protected:
