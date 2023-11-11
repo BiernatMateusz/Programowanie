@@ -13,6 +13,8 @@
 #include <stack>
 #include "EntityPlayer.h"
 #include "Camera.h"
+#include "Equipment.h"
+#include "StructuresOfData.h"
 
 
 class State
@@ -23,9 +25,7 @@ private:
 	
 protected:
 
-	sf::Vector2i mousePosition;
-
-	sf::RenderWindow* window;
+	GraphicsData* graphicsData;
 
 	std::stack<State*> *stat;
 
@@ -43,11 +43,12 @@ protected:
 	std::vector<sf::Sprite*> SpritesEnti;
 	std::vector<sf::Sprite*> *SpritesEntiPointer;
 
-	std::vector<sf::Texture*>*GraphicsTxtPointer;
-	std::map<std::string, sf::Texture*>*TexturesMap;
+	
+
+	Equipment* equipmentPtr;
 	
 public:
-	State(sf::RenderWindow* Window, std::stack<State*> *Stat, std::map<std::string, sf::Texture*>*TexturesMap, std::vector<sf::Texture*>*GraphicsTxtVec);
+	State(GraphicsData* graphicsData, std::stack<State*>* Stat);
 
 	virtual ~State();
 
@@ -59,6 +60,7 @@ public:
 	virtual bool checkExactPosition(int x, int offsetX, int y, int offsetY);
 
 	virtual void initGraphics()=0;
+	virtual void initEquipment(GraphicsData *graphicsData) = 0;
 	virtual void update(const float& dt) = 0;
 	virtual void render(sf::RenderTarget* Window = nullptr)=0; 
 	virtual void checkForQuit();

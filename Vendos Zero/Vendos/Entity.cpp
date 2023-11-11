@@ -21,7 +21,7 @@ void Entity::initTexture(std::string &&NameOfTxt, sf::Vector2f &&position)
 {
 	this->Enti->push_back(new sf::Sprite);
 	this->Enti->back()->setTexture(*this->TexturesMap->at(NameOfTxt));
-	this->Enti->back()->setOrigin(20, 94);
+	this->Enti->back()->setOrigin(18, 76);
 	this->Enti->back()->setPosition(position.x, position.y);
 	
 	

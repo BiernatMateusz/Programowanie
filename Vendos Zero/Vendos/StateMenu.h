@@ -14,13 +14,14 @@ private:
     
 
 public:
-    StateMenu(sf::RenderWindow* window, std::stack<State*>* Stat, std::map<std::string, sf::Texture*>* TexturesMap, std::vector<sf::Texture*>* GraphicsTxtVec);
+    StateMenu(GraphicsData* graphicsData, std::stack<State*>* Stat);
     ~StateMenu();
 
     //Functions
     void updateKeybinds(const float& dt);
     void endState();
 
+    void initEquipment(GraphicsData* graphicsData);
     void initGraphics();
     void update(const float& dt);
     void render(sf::RenderTarget* Window);

@@ -11,9 +11,12 @@ void Game::initializeWindow()
 
 Game::Game()
 {
+	
 	this->initializeWindow();
 	this->initTextures();
 	this->initStates();
+	
+
 }
 
 Game::~Game()
@@ -42,7 +45,7 @@ void Game::update()
 	if (!this->states.empty())
 	{
 		this->states.top()->update(this->dt);
-
+		
 		if (this->states.top()->getQuit())
 		{
 			//Save game before then do that 
@@ -90,22 +93,49 @@ void Game::run()
 
 void Game::LoadNewGraphic(std::string&& name)
 {
-	GraphicsTxtVec.push_back(new sf::Texture);
-	GraphicsTxtVec.back()->loadFromFile("Texture/" + name + ".png");
-	TexturesMap.insert(std::pair<std::string, sf::Texture*>(name, GraphicsTxtVec.back()));
+	this->graphicsData->GraphicsTxtVec->push_back(new sf::Texture);
+	this->graphicsData->GraphicsTxtVec->back()->loadFromFile("Texture/" + name + ".png");
+	this->graphicsData->TexturesMap->insert(std::pair<std::string, sf::Texture*>(name, this->graphicsData->GraphicsTxtVec->back()));
 }
 
 void Game::initStates()
 {
-	this->states.push(new StateMenu(this->window, &this->states, &this->TexturesMap, &this->GraphicsTxtVec ));
+	this->states.push(new StateMenu(this->graphicsData, &this->states));
 }
 
 void Game::initTextures()
 {
+	this->TexturesMapPtr = &this->TexturesMap;
+	this->GraphicsTxtVecPtr = &this->GraphicsTxtVec;
+	initGraphicsData();
+	//Main menu
 	LoadNewGraphic("Menu");
+
+	//Terrain
 	LoadNewGraphic("Mapka");
-	LoadNewGraphic("Abigail");
 	LoadNewGraphic("Tree1");
+	LoadNewGraphic("Tree2");
+	LoadNewGraphic("Tree3");
+
+	//Player
+	LoadNewGraphic("Abigail");
+
+	//Equipment
+	LoadNewGraphic("dziabka");
+	LoadNewGraphic("Kilof");
+	LoadNewGraphic("Siekiera");
+	LoadNewGraphic("Miecz");
+	LoadNewGraphic("lopata");
+	LoadNewGraphic("konewka");
+
+	
+}
+
+void Game::initGraphicsData()
+{
+	this->graphicsData->window = this->window;
+	this->graphicsData->TexturesMap = this->TexturesMapPtr;
+	this->graphicsData->GraphicsTxtVec = this->GraphicsTxtVecPtr;
 }
 
 

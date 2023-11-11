@@ -11,7 +11,7 @@ private:
     
 
 public:
-    StateSpawnPlace(sf::RenderWindow* window, std::stack<State*>* Stat, std::map<std::string, sf::Texture*>* TexturesMap, std::vector<sf::Texture*>* GraphicsTxtVec);
+    StateSpawnPlace(GraphicsData* graphicsData, std::stack<State*>* Stat);
     ~StateSpawnPlace();
 
     //Functions
@@ -21,6 +21,7 @@ public:
     void initGraphics();
     void initPlayer();
     void initBlockade();
+    void initEquipment(GraphicsData* graphicsData);
 
     void update(const float& dt);
     void render(sf::RenderTarget* Window);

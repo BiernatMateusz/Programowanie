@@ -5,6 +5,7 @@
 #include "SFML/Window.hpp"
 #include "SFML/System.hpp"
 
+#include "StructuresOfData.h"
 #include <iostream>
 #include <string>
 #include <vector>

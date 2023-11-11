@@ -86,13 +86,13 @@ bool Camera::CheckingPossibleMove(std::string&& direction, std::vector<std::vect
 {
 
 	bool possible = 1;
-	int xleft = (this->Player->getPosition().x - BackGround->getPosition().x) / 44;					//player x left (border) calculated to array dim
-	int ytop = ((this->Player->getPosition().y-15 - (BackGround->getPosition().y)) + 2596) / 44;	//player y top (border) calculated to array dim
-	int ybot = ((this->Player->getPosition().y- (BackGround->getPosition().y))+2596) / 44;			//Player y bot (border) calculated to array dim
-	int xright = (this->Player->getPosition().x +30 - BackGround->getPosition().x) / 44;			//Player x right (border) calculated to array dim
+	int xleft = (this->Player->getPosition().x-11 - BackGround->getPosition().x) / 44;					//player x left (border) calculated to array dim
+	int ytop = (((this->Player->getPosition().y-15 - (BackGround->getPosition().y)) + 2596) / 44);	//player y top (border) calculated to array dim
+	int ybot = (((this->Player->getPosition().y- (BackGround->getPosition().y))+2596) / 44);			//Player y bot (border) calculated to array dim
+	int xright = (this->Player->getPosition().x-11 +30 - BackGround->getPosition().x) / 44;			//Player x right (border) calculated to array dim
 
-	float xleftRealPos = this->Player->getPosition().x - BackGround->getPosition().x;
-	float xrightRealPos = this->Player->getPosition().x + 30 - BackGround->getPosition().x;
+	float xleftRealPos = this->Player->getPosition().x-11 - BackGround->getPosition().x;
+	float xrightRealPos = this->Player->getPosition().x-11 + 30 - BackGround->getPosition().x;
 	float ybotRealPos = (this->Player->getPosition().y - (BackGround->getPosition().y)) + 2596;
 	float ytopRealPos = (this->Player->getPosition().y - 15 - (BackGround->getPosition().y)) + 2596;
 	
@@ -304,11 +304,59 @@ bool Camera::CheckingPossibleMove(std::string&& direction, std::vector<std::vect
 	
 }
 
+void Camera::PlayerAnimation(const float& dt, std::string&& direction)
+{
+	if (direction != "left" and direction != "right" and direction != "top" and direction != "bot")
+	{
+		time = 0;
+	}
+	else time += dt;
+
+	int timeUsed = time * 100;
+
+	float WhichAnimation = timeUsed % 30;
+	WhichAnimation = (timeUsed - WhichAnimation)/30;
+
+	if (WhichAnimation > 3)
+	{
+		time = 0;
+		WhichAnimation = 0;
+	}
+
+	int WhichAnimationN = WhichAnimation + 1;
+	if (WhichAnimationN == 4)
+		WhichAnimationN = 0;
+
+	if (direction == "left")
+	{
+		this->Player->setTextureRect(sf::IntRect(22+40*WhichAnimationN, 20+234, 40, 85));
+		lastDir = 3;
+	}
+	if (direction == "right")
+	{
+		this->Player->setTextureRect(sf::IntRect(22+40 * WhichAnimationN,20+ 78, 40, 85));
+		lastDir = 1;
+	}
+	if (direction == "top")
+	{
+		this->Player->setTextureRect(sf::IntRect(22+40 * WhichAnimationN, 20+156, 40, 85));
+		lastDir = 2;
+	}
+	if (direction == "bot")
+	{
+		this->Player->setTextureRect(sf::IntRect(22+40 * WhichAnimationN, 20+0, 40, 85));
+		lastDir = 0;
+	}
+
+	if (direction != "left" and direction != "right" and direction != "top" and direction != "bot")
+	{
+		this->Player->setTextureRect(sf::IntRect(22 + 40 * WhichAnimation, 20 + 78*lastDir, 40, 85));
+	}
+
+}
+
 void Camera::sortVector()
 {
-	for (auto* elem : *this->AllSpritesPointer)
-		std::cout << elem->getPosition().y<<"\n";
-
 	std::sort(this->AllSpritesPointer->begin(), this->AllSpritesPointer->end(), 
 		[this]( sf::Sprite *&y,  sf::Sprite *&x) -> bool 
 			{
@@ -320,7 +368,9 @@ void Camera::sortVector()
 bool Camera::movementAll(const float& dt, std::vector<std::vector<bool>>& Blockade, std::vector<std::vector<sf::Vector2f>>& BlockadeDimension, float&& speed )
 {
 	bool moved = 0;
-	
+	std::string direction{};
+
+
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
 	{
 		if (CheckingPossibleMove("left", Blockade, BlockadeDimension, dt, speed))
@@ -332,7 +382,9 @@ bool Camera::movementAll(const float& dt, std::vector<std::vector<bool>>& Blocka
 			else movePlayer(dt, -speed, 0);
 
 			moved = 1;
+			
 		}
+		direction = "left";
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
 	{
@@ -345,7 +397,9 @@ bool Camera::movementAll(const float& dt, std::vector<std::vector<bool>>& Blocka
 			else movePlayer(dt, speed, 0);
 
 			moved = 1;
+			
 		}
+		direction = "right";
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
 	{
@@ -358,7 +412,10 @@ bool Camera::movementAll(const float& dt, std::vector<std::vector<bool>>& Blocka
 			else movePlayer(dt, 0, -speed);
 
 			moved = 1;
+			
+
 		}
+		direction = "top";
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
 	{
@@ -369,14 +426,16 @@ bool Camera::movementAll(const float& dt, std::vector<std::vector<bool>>& Blocka
 				moveAllObjects(this->Player, dt, 0, -speed);
 			}
 			else movePlayer(dt, 0, speed);
-
+			
 			moved = 1;
 		}
+		direction = "bot";
 	}
+
+	PlayerAnimation(dt, std::move(direction));
 
 	return moved;
 }
-
 
 void Camera::render(sf::RenderWindow* window)
 {

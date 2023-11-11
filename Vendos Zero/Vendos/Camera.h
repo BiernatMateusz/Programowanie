@@ -8,6 +8,7 @@
 #include "SFML/Window.hpp"
 #include "SFML/System.hpp"
 
+#include "StructuresOfData.h"
 #include <iostream>
 #include <string>
 #include <vector>
@@ -25,13 +26,15 @@ private:
 	sf::Vector2f CenterOfMap;
 	sf::Sprite* BackGround;
 
+	float time{};
+	int lastDir{};
 
 	//Functions
 	bool checkIfBackGroundMoveable(std::string direction);
 	void moveAllObjects(sf::Sprite * Excluded, const float& dt, float speedX, float speedY);
 	void movePlayer(const float& dt, float speedX, float speedY);
 	bool CheckingPossibleMove(std::string&& direction, std::vector<std::vector<bool>>& blockade, std::vector<std::vector<sf::Vector2f>>& BlockadeDimension, const float& dt, float & speed);
-
+	void PlayerAnimation(const float& dt, std::string&& direction);
 
 
 

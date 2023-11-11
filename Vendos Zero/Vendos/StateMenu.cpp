@@ -1,7 +1,7 @@
 #include "StateMenu.h"
 
-StateMenu::StateMenu(sf::RenderWindow* window, std::stack<State*>* Stat, std::map<std::string, sf::Texture*>* TexturesMap, std::vector<sf::Texture*>* GraphicsTxtVecToP)
-	: State(window, Stat, TexturesMap, GraphicsTxtVecToP)
+StateMenu::StateMenu(GraphicsData* graphicsData, std::stack<State*>* Stat)
+	: State(graphicsData, Stat)
 {
 	initGraphics();
 }
@@ -20,8 +20,7 @@ void StateMenu::updateKeybinds(const float& dt)
 		{
 			std::cout << "1\n";
 			
-			stat->push(new StateSpawnPlace(window, this->stat, this->TexturesMap, this->GraphicsTxtPointer ));
-			
+			stat->push(new StateSpawnPlace(this->graphicsData, this->stat));
 			
 
 		}
@@ -42,11 +41,16 @@ void StateMenu::endState()
 }
 
 
+void StateMenu::initEquipment(GraphicsData* graphicsData)
+{
+
+}
+
 void StateMenu::initGraphics()
 {
 	LoadNewGraph({ 0,0 }, "Menu");
 
-	this->Camer = new Camera(&this->GraphicsSprite, window);
+	this->Camer = new Camera(&this->GraphicsSprite, this->graphicsData->window);
 }
 
 void StateMenu::update(const float& dt)
@@ -58,5 +62,5 @@ void StateMenu::update(const float& dt)
 
 void StateMenu::render(sf::RenderTarget* Window)
 {
-	Camer->render(window);
+	Camer->render(this->graphicsData->window);
 }

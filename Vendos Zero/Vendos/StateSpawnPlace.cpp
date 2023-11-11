@@ -1,10 +1,12 @@
 #include "StateSpawnPlace.h"
 
-StateSpawnPlace::StateSpawnPlace(sf::RenderWindow* window, std::stack<State*>* Stat, std::map<std::string, sf::Texture*>* TexturesMap, std::vector<sf::Texture*>* GraphicsTxtVecToP)
-	: State(window, Stat, TexturesMap, GraphicsTxtVecToP)
+StateSpawnPlace::StateSpawnPlace(GraphicsData* graphicsData, std::stack<State*>* Stat)
+	: State(graphicsData, Stat)
 {
 	initPlayer();
 	initGraphics();
+	initEquipment(graphicsData);
+
 }
 
 StateSpawnPlace::~StateSpawnPlace()
@@ -33,20 +35,17 @@ void StateSpawnPlace::initGraphics()
 
 	initBlockade();
 
-	LoadNewGraph({ 44 * 6, 44 * 13 }, "Tree1");
+	LoadNewGraph({ 44 * 10, 44 * 12 }, "Tree1");
+	LoadNewGraph({ 44 * 13, 44 * 12 }, "Tree2");
+	LoadNewGraph({ 44 * 15, 44 * 12 }, "Tree3");
 
-	LoadNewGraph({ 44 * 7, 44 * 13 }, "Tree1");
-	LoadNewGraph({ 44 * 8, 44 * 13 }, "Tree1");
-
-
-
-	this->Camer = new Camera(&this->GraphicsSprite,this->SpritesEntiPointer,window);
+	this->Camer = new Camera(&this->GraphicsSprite,this->SpritesEntiPointer,this->graphicsData->window);
 
 }
 
 void StateSpawnPlace::initPlayer()
 {
-	this->entiesPointer->push_back(new EntityPlayer({ 44*4,44*20}, "Abigail", SpritesEntiPointer,TexturesMap,window));
+	this->entiesPointer->push_back(new EntityPlayer({ 44*4,44*20}, "Abigail", SpritesEntiPointer,this->graphicsData->TexturesMap,this->graphicsData->window));
 }
 
 void StateSpawnPlace::initBlockade()
@@ -58,13 +57,20 @@ void StateSpawnPlace::initBlockade()
 	this->BlockadeDimension.resize((x - (x % 44)) / 44, std::vector<sf::Vector2f>((y - (y % 44)) / 44));
 }
 
+void StateSpawnPlace::initEquipment(GraphicsData* graphicsData)
+{
+	this->equipmentPtr = new Equipment(graphicsData);
+}
+
 void StateSpawnPlace::update(const float& dt)
 {
 	this->updateKeybinds(dt);
 	this->getMousePosition();
+	this->equipmentPtr->update();
 }
 
 void StateSpawnPlace::render(sf::RenderTarget* Window)
 {
-	Camer->render(window);
+	Camer->render(this->graphicsData->window);
+	equipmentPtr->render();
 }

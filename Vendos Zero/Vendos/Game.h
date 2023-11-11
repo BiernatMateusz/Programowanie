@@ -6,7 +6,7 @@
 #include "StateSpawnPlace.h"
 #include <stack>
 
-//Aby dodawac nowe grafiki nale¿y wejœæ do Game.cpp do funkcji initTextures i dopisaæ dolejne textury
+//To add new textures u have to go to: ==== initTextures ==== and add new textures ---- game.cpp
 
 
 class Game
@@ -20,8 +20,14 @@ private:
 
 	sf::Clock dtClock;
 
+	//GRAPHICS THINGS
 	std::vector<sf::Texture*>GraphicsTxtVec;
-	std::map<std::string, sf::Texture*>TexturesMap; //Do zrobienia
+	std::vector<sf::Texture*>*GraphicsTxtVecPtr=&GraphicsTxtVec;
+	std::map<std::string, sf::Texture*>TexturesMap;
+	std::map<std::string, sf::Texture*>*TexturesMapPtr=&TexturesMap;
+
+	GraphicsData graphicsDataX{};
+	GraphicsData* graphicsData = &graphicsDataX;
 
 	float dt;
 
@@ -41,6 +47,7 @@ public:
 	//Init
 	void initStates();
 	void initTextures();
+	void initGraphicsData();
 
 	//functions
 	void endApp();

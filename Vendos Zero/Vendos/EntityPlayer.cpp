@@ -15,8 +15,8 @@ EntityPlayer::~EntityPlayer()
 
 void EntityPlayer::changeTexture()
 {
-	this->Enti->back()->setTextureRect(sf::IntRect(0, 0, 60, 100));
-	this->Enti->back()->setScale(0.85, 0.85);
+	this->Enti->back()->setTextureRect(sf::IntRect(21, 20, 40, 85));
+	
 
 	//Center of 
 	getCenterOfPlayer();
