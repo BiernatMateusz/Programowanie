@@ -1,18 +1,18 @@
 #include "State.h"
 
-State::State(GraphicsData* graphicsData, std::stack<State*>* Stat)
+State::State(sf::RenderWindow* Window, std::stack<State*> *Stat)
 {
-	this->graphicsData = graphicsData;
+	this->window = Window;
 	this->stat = Stat;
 	this->quit = false;
 	this->SpritesEntiPointer = &this->SpritesEnti;
 	this->entiesPointer = &this->entities;
-
+	
 }
 
 State::~State()
 {
-	delete this->graphicsData->window;
+	delete window;
 	delete NewEntity;
 	std::cout << "Usunalem stat\n";
 }
@@ -24,13 +24,13 @@ const bool& State::getQuit() const
 
 void State::getMousePosition()
 {
-	this->graphicsData->mousePosition.x = sf::Mouse::getPosition().x - this->graphicsData->window->getPosition().x;
-	this->graphicsData->mousePosition.y = sf::Mouse::getPosition().y - this->graphicsData->window->getPosition().y;
+	this->mousePosition.x = sf::Mouse::getPosition().x - this->window->getPosition().x;
+	this->mousePosition.y = sf::Mouse::getPosition().y - this->window->getPosition().y;
 }
 
 bool State::checkExactPosition(int x,int offsetX,int y,int offsetY)
 {
-		return (this->graphicsData->mousePosition.x > x && this->graphicsData->mousePosition.x < offsetX && this->graphicsData->mousePosition.y>y && this->graphicsData->mousePosition.y < offsetY);
+		return (mousePosition.x > x && mousePosition.x < offsetX && mousePosition.y>y && mousePosition.y < offsetY);
 }
 
 void State::checkForQuit()
@@ -39,46 +39,4 @@ void State::checkForQuit()
 	{
 		this->quit = true;
 	}
-}
-
-void State::LoadNewGraph(sf::Vector2f&& position, std::string&& NameOfTxt)
-{
-	float offset{};
-	this->GraphicsSprite.push_back(new sf::Sprite);
-	this->GraphicsSprite.back()->setTexture(*this->graphicsData->TexturesMap->at(NameOfTxt));
-
-	//Setting origins
-	if (NameOfTxt == "Mapka")
-		this->GraphicsSprite.back()->setOrigin(0, this->GraphicsSprite.back()->getGlobalBounds().height);
-
-	if (NameOfTxt == "Tree1")
-	{
-		this->GraphicsSprite.back()->setOrigin(50, this->GraphicsSprite.back()->getGlobalBounds().height - 25 -15 ); //-44
-		this->BlockadeDimension[position.x / 44][(position.y / 44)-1] = {30,30};     //+44???
-		offset = -15;
-	}
-
-	if (NameOfTxt == "Tree2")
-	{
-		this->GraphicsSprite.back()->setOrigin(68, this->GraphicsSprite.back()->getGlobalBounds().height); //-44
-		this->BlockadeDimension[position.x / 44][(position.y / 44) - 1] = { 30,30 };    
-		offset = -15;
-	}
-
-	if (NameOfTxt == "Tree3")
-	{
-		this->GraphicsSprite.back()->setOrigin(47, this->GraphicsSprite.back()->getGlobalBounds().height-30); //-44
-		this->BlockadeDimension[position.x / 44][(position.y / 44) - 1] = { 30,10 };     
-		offset = -15;
-	}
-
-
-	this->GraphicsSprite.back()->setPosition(position.x, position.y+offset);
-
-	if (Blockade.size() > 0)
-	{
-		this->Blockade[position.x / 44][(position.y / 44)-1] = 1;
-	}
-	
-
 }
