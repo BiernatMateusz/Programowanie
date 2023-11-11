@@ -24,7 +24,7 @@ public:
     void initEquipment(GraphicsData* graphicsData);
     void initGraphics();
     void update(const float& dt);
-    void render(sf::RenderTarget* Window); //need class - camera
+    void render(sf::RenderTarget* Window);
 };
 
 #endif // !STATEMENU_H

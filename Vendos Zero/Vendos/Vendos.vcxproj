@@ -22,7 +22,11 @@
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="EntityPlayer.cpp" />
+    <ClCompile Include="Equipment.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="item.cpp" />
+    <ClCompile Include="itemHoe.cpp" />
+    <ClCompile Include="itemTool.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="State.cpp" />
     <ClCompile Include="StateMenu.cpp" />
@@ -32,7 +36,12 @@
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="EntityPlayer.h" />
+    <ClInclude Include="Equipment.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="item.h" />
+    <ClInclude Include="itemHoe.h" />
+    <ClInclude Include="itemTool.h" />
+    <ClInclude Include="StructuresOfData.h" />
     <ClInclude Include="State.h" />
     <ClInclude Include="StateMenu.h" />
     <ClInclude Include="StateSpawnPlace.h" />
