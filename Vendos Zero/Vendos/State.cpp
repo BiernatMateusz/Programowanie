@@ -6,6 +6,13 @@ State::State(GraphicsData* graphicsData, std::stack<State*>* Stat)
 	this->stat = Stat;
 	this->quit = false;
 	this->SpritesEntiPointer = &this->SpritesEnti;
+
+	this->graphicsData->GraphicsSprite = &this->GraphicsSprite;
+	for (auto* elem : *this->graphicsData->GraphicsSprite)
+		delete elem;
+
+	this->graphicsData->GraphicsSprite->clear();
+
 	this->entiesPointer = &this->entities;
 
 }
@@ -44,36 +51,36 @@ void State::checkForQuit()
 void State::LoadNewGraph(sf::Vector2f&& position, std::string&& NameOfTxt)
 {
 	float offset{};
-	this->GraphicsSprite.push_back(new sf::Sprite);
-	this->GraphicsSprite.back()->setTexture(*this->graphicsData->TexturesMap->at(NameOfTxt));
+	this->graphicsData->GraphicsSprite->push_back(new sf::Sprite);
+	this->graphicsData->GraphicsSprite->back()->setTexture(*this->graphicsData->TexturesMap->at(NameOfTxt));
 
 	//Setting origins
 	if (NameOfTxt == "Mapka")
-		this->GraphicsSprite.back()->setOrigin(0, this->GraphicsSprite.back()->getGlobalBounds().height);
+		this->graphicsData->GraphicsSprite->back()->setOrigin(0, this->graphicsData->GraphicsSprite->back()->getGlobalBounds().height);
 
 	if (NameOfTxt == "Tree1")
 	{
-		this->GraphicsSprite.back()->setOrigin(50, this->GraphicsSprite.back()->getGlobalBounds().height - 25 -15 ); //-44
-		this->BlockadeDimension[position.x / 44][(position.y / 44)-1] = {30,30};     //+44???
+		this->graphicsData->GraphicsSprite->back()->setOrigin(50, this->graphicsData->GraphicsSprite->back()->getGlobalBounds().height - 25 -15 ); //-44
+		this->BlockadeDimension[position.x / 44][(position.y / 44)-1] = {30,30};
 		offset = -15;
 	}
 
 	if (NameOfTxt == "Tree2")
 	{
-		this->GraphicsSprite.back()->setOrigin(68, this->GraphicsSprite.back()->getGlobalBounds().height); //-44
+		this->graphicsData->GraphicsSprite->back()->setOrigin(68, this->graphicsData->GraphicsSprite->back()->getGlobalBounds().height);
 		this->BlockadeDimension[position.x / 44][(position.y / 44) - 1] = { 30,30 };    
 		offset = -15;
 	}
 
 	if (NameOfTxt == "Tree3")
 	{
-		this->GraphicsSprite.back()->setOrigin(47, this->GraphicsSprite.back()->getGlobalBounds().height-30); //-44
+		this->graphicsData->GraphicsSprite->back()->setOrigin(47, this->graphicsData->GraphicsSprite->back()->getGlobalBounds().height-30); //-44
 		this->BlockadeDimension[position.x / 44][(position.y / 44) - 1] = { 30,10 };     
 		offset = -15;
 	}
 
 
-	this->GraphicsSprite.back()->setPosition(position.x, position.y+offset);
+	this->graphicsData->GraphicsSprite->back()->setPosition(position.x, position.y+offset);
 
 	if (Blockade.size() > 0)
 	{

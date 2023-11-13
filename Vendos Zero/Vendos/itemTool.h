@@ -20,7 +20,7 @@ protected:
 
 public:
 
-    itemTool(GraphicsData* graphicsData, sf::Vector2i& xyOfvec, std::string&& name);
+    itemTool(GraphicsData* graphicsData, EquipmentData* equipmentData, sf::Vector2i& xyOfvec, std::string&& name);
 
     virtual void update(const float& dt) = 0;
     virtual void render(sf::RenderWindow* window) = 0; //for animations

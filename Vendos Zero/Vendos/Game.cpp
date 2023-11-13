@@ -123,7 +123,7 @@ void Game::initTextures()
 	//Equipment
 	LoadNewGraphic("dziabka");
 	LoadNewGraphic("Kilof");
-	LoadNewGraphic("Siekiera");
+	LoadNewGraphic("siekiera");
 	LoadNewGraphic("Miecz");
 	LoadNewGraphic("lopata");
 	LoadNewGraphic("konewka");

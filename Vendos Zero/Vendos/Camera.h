@@ -30,6 +30,8 @@ private:
 	int lastDir{};
 
 	//Functions
+	void initGraphicsBasics(std::vector<sf::Sprite*>* GraphicsSpr, sf::RenderWindow* window);
+
 	bool checkIfBackGroundMoveable(std::string direction);
 	void moveAllObjects(sf::Sprite * Excluded, const float& dt, float speedX, float speedY);
 	void movePlayer(const float& dt, float speedX, float speedY);

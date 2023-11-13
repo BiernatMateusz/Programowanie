@@ -8,7 +8,10 @@
 #include "StructuresOfData.h"
 #include <iostream>
 #include "itemHoe.h"
-
+#include "itemPickaxe.h"
+#include "itemAxe.h"
+#include "itemSword.h"
+#include "itemShovel.h"
 //Bottom bar
 //Equipment on E - new window
 
@@ -17,25 +20,19 @@ class Equipment
 {
 private:
 	//Variables
-	GraphicsData graphicsDataX{};
-	GraphicsData *graphicsData=&graphicsDataX;
+	GraphicsData* graphicsData;
+	EquipmentData* equipmentData;
 
 	//Bottom bar
-	int WhichItemSelected = 0;
 	const int NumberOfItems = 10; 
 	
+	sf::Sprite* BottomBarPtr;
 
-	sf::Sprite BottomBar;
-	sf::Sprite* BottomBarPtr=&BottomBar;
+	sf::Texture* BottomBarTxtPtr;
 
-	sf::Texture BottomBarTxt;
-	sf::Texture* BottomBarTxtPtr=&BottomBarTxt;
+	sf::Sprite* BottomBarChoosenPtr;
 
-	sf::Sprite BottomBarChoosen;
-	sf::Sprite* BottomBarChoosenPtr = &BottomBarChoosen;
-
-	sf::Texture BottomBarChoosenTxt;
-	sf::Texture* BottomBarChoosenTxtPtr = &BottomBarChoosenTxt;
+	sf::Texture* BottomBarChoosenTxtPtr;
 
 	std::vector<sf::Sprite*>BottomBarSprites;
 
@@ -57,8 +54,6 @@ private:
 	
 
 	//Additional functions
-	void LoadNewGraphic(std::string&& name);
-
 	void changeBar();
 	void updateKeybinds();
 	void initGraphics();
@@ -68,6 +63,7 @@ private:
 	void initEqAndBar();
 	void drawEq();
 	void drawBottomBar();
+	void updateBottomBar();
 protected:
 
 public:

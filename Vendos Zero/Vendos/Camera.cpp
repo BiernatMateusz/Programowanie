@@ -9,21 +9,17 @@ bool operator>(const sf::Sprite &x,const sf::Sprite &y)
 //Constructors
 Camera::Camera(std::vector<sf::Sprite*>* GraphicsSpr, sf::RenderWindow* window)
 {
-	this->BackGround = *GraphicsSpr->begin();
-	this->Window = window;
-	this->AllSpritesPointer = &this->AllSprites;
-	*this->AllSpritesPointer = *GraphicsSpr;
+	initGraphicsBasics(GraphicsSpr, window);
 	sortVector();
 
 }
 
 Camera::Camera(std::vector<sf::Sprite*>* GraphicsSpr, std::vector<sf::Sprite*>* EntitySpr, sf::RenderWindow* window)
 {
-	this->BackGround = *GraphicsSpr->begin();
 	this->Player = *EntitySpr->begin();
-	this->Window = window;
-	this->AllSpritesPointer = &this->AllSprites;
-	*this->AllSpritesPointer = *GraphicsSpr;
+
+	initGraphicsBasics(GraphicsSpr, window);
+	
 	this->CenterOfMap = EntitySpr->front()->getPosition();
 
 	AllSpritesPointer->insert(AllSpritesPointer->end(), EntitySpr->begin(), EntitySpr->end());
@@ -38,6 +34,14 @@ Camera::~Camera()
 
 
 
+
+void Camera::initGraphicsBasics(std::vector<sf::Sprite*>* GraphicsSpr, sf::RenderWindow* window)
+{
+	this->BackGround = *GraphicsSpr->begin();
+	this->Window = window;
+	this->AllSpritesPointer = &this->AllSprites;
+	*this->AllSpritesPointer = *GraphicsSpr;
+}
 
 //Functions
 bool Camera::checkIfBackGroundMoveable(std::string direction)

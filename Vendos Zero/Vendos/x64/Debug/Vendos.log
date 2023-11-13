@@ -1,188 +1,188 @@
 ﻿  Camera.cpp
-C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\Vendos\Camera.cpp(89,12): warning C4244: "inicjowanie": konwersja z "T" do "int", możliwa utrata danych
+C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\Vendos\Camera.cpp(93,12): warning C4244: "inicjowanie": konwersja z "T" do "int", możliwa utrata danych
           with
           [
               T=float
           ]
-C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\Vendos\Camera.cpp(90,11): warning C4244: "inicjowanie": konwersja z "T" do "int", możliwa utrata danych
+C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\Vendos\Camera.cpp(94,11): warning C4244: "inicjowanie": konwersja z "T" do "int", możliwa utrata danych
           with
           [
               T=float
           ]
-C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\Vendos\Camera.cpp(91,11): warning C4244: "inicjowanie": konwersja z "T" do "int", możliwa utrata danych
+C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\Vendos\Camera.cpp(95,11): warning C4244: "inicjowanie": konwersja z "T" do "int", możliwa utrata danych
           with
           [
               T=float
           ]
-C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\Vendos\Camera.cpp(92,13): warning C4244: "inicjowanie": konwersja z "T" do "int", możliwa utrata danych
+C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\Vendos\Camera.cpp(96,13): warning C4244: "inicjowanie": konwersja z "T" do "int", możliwa utrata danych
           with
           [
               T=float
           ]
-C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\Vendos\Camera.cpp(108,11): warning C4244: "inicjowanie": konwersja z "T" do "int", możliwa utrata danych
+C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\Vendos\Camera.cpp(112,11): warning C4244: "inicjowanie": konwersja z "T" do "int", możliwa utrata danych
           with
           [
               T=float
           ]
-C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\Vendos\Camera.cpp(109,11): warning C4244: "inicjowanie": konwersja z "T" do "int", możliwa utrata danych
+C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\Vendos\Camera.cpp(113,11): warning C4244: "inicjowanie": konwersja z "T" do "int", możliwa utrata danych
           with
           [
               T=float
           ]
-C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\Vendos\Camera.cpp(110,11): warning C4244: "inicjowanie": konwersja z "T" do "int", możliwa utrata danych
+C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\Vendos\Camera.cpp(114,11): warning C4244: "inicjowanie": konwersja z "T" do "int", możliwa utrata danych
           with
           [
               T=float
           ]
-C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\Vendos\Camera.cpp(111,11): warning C4244: "inicjowanie": konwersja z "T" do "int", możliwa utrata danych
+C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\Vendos\Camera.cpp(115,11): warning C4244: "inicjowanie": konwersja z "T" do "int", możliwa utrata danych
           with
           [
               T=float
           ]
-C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\Vendos\Camera.cpp(124,11): warning C4244: "inicjowanie": konwersja z "T" do "int", możliwa utrata danych
+C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\Vendos\Camera.cpp(128,11): warning C4244: "inicjowanie": konwersja z "T" do "int", możliwa utrata danych
           with
           [
               T=float
           ]
-C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\Vendos\Camera.cpp(125,11): warning C4244: "inicjowanie": konwersja z "T" do "int", możliwa utrata danych
+C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\Vendos\Camera.cpp(129,11): warning C4244: "inicjowanie": konwersja z "T" do "int", możliwa utrata danych
           with
           [
               T=float
           ]
-C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\Vendos\Camera.cpp(139,11): warning C4244: "inicjowanie": konwersja z "T" do "int", możliwa utrata danych
+C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\Vendos\Camera.cpp(143,11): warning C4244: "inicjowanie": konwersja z "T" do "int", możliwa utrata danych
           with
           [
               T=float
           ]
-C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\Vendos\Camera.cpp(140,11): warning C4244: "inicjowanie": konwersja z "T" do "int", możliwa utrata danych
+C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\Vendos\Camera.cpp(144,11): warning C4244: "inicjowanie": konwersja z "T" do "int", możliwa utrata danych
           with
           [
               T=float
           ]
-C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\Vendos\Camera.cpp(158,11): warning C4244: "inicjowanie": konwersja z "T" do "int", możliwa utrata danych
+C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\Vendos\Camera.cpp(162,11): warning C4244: "inicjowanie": konwersja z "T" do "int", możliwa utrata danych
           with
           [
               T=float
           ]
-C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\Vendos\Camera.cpp(159,11): warning C4244: "inicjowanie": konwersja z "T" do "int", możliwa utrata danych
+C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\Vendos\Camera.cpp(163,11): warning C4244: "inicjowanie": konwersja z "T" do "int", możliwa utrata danych
           with
           [
               T=float
           ]
-C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\Vendos\Camera.cpp(160,11): warning C4244: "inicjowanie": konwersja z "T" do "int", możliwa utrata danych
+C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\Vendos\Camera.cpp(164,11): warning C4244: "inicjowanie": konwersja z "T" do "int", możliwa utrata danych
           with
           [
               T=float
           ]
-C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\Vendos\Camera.cpp(161,11): warning C4244: "inicjowanie": konwersja z "T" do "int", możliwa utrata danych
+C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\Vendos\Camera.cpp(165,11): warning C4244: "inicjowanie": konwersja z "T" do "int", możliwa utrata danych
           with
           [
               T=float
           ]
-C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\Vendos\Camera.cpp(174,11): warning C4244: "inicjowanie": konwersja z "T" do "int", możliwa utrata danych
+C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\Vendos\Camera.cpp(178,11): warning C4244: "inicjowanie": konwersja z "T" do "int", możliwa utrata danych
           with
           [
               T=float
           ]
-C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\Vendos\Camera.cpp(175,11): warning C4244: "inicjowanie": konwersja z "T" do "int", możliwa utrata danych
+C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\Vendos\Camera.cpp(179,11): warning C4244: "inicjowanie": konwersja z "T" do "int", możliwa utrata danych
           with
           [
               T=float
           ]
-C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\Vendos\Camera.cpp(188,11): warning C4244: "inicjowanie": konwersja z "T" do "int", możliwa utrata danych
+C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\Vendos\Camera.cpp(192,11): warning C4244: "inicjowanie": konwersja z "T" do "int", możliwa utrata danych
           with
           [
               T=float
           ]
-C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\Vendos\Camera.cpp(189,11): warning C4244: "inicjowanie": konwersja z "T" do "int", możliwa utrata danych
+C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\Vendos\Camera.cpp(193,11): warning C4244: "inicjowanie": konwersja z "T" do "int", możliwa utrata danych
           with
           [
               T=float
           ]
-C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\Vendos\Camera.cpp(209,11): warning C4244: "inicjowanie": konwersja z "T" do "int", możliwa utrata danych
+C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\Vendos\Camera.cpp(213,11): warning C4244: "inicjowanie": konwersja z "T" do "int", możliwa utrata danych
           with
           [
               T=float
           ]
-C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\Vendos\Camera.cpp(210,11): warning C4244: "inicjowanie": konwersja z "T" do "int", możliwa utrata danych
+C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\Vendos\Camera.cpp(214,11): warning C4244: "inicjowanie": konwersja z "T" do "int", możliwa utrata danych
           with
           [
               T=float
           ]
-C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\Vendos\Camera.cpp(211,11): warning C4244: "inicjowanie": konwersja z "T" do "int", możliwa utrata danych
+C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\Vendos\Camera.cpp(215,11): warning C4244: "inicjowanie": konwersja z "T" do "int", możliwa utrata danych
           with
           [
               T=float
           ]
-C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\Vendos\Camera.cpp(212,11): warning C4244: "inicjowanie": konwersja z "T" do "int", możliwa utrata danych
+C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\Vendos\Camera.cpp(216,11): warning C4244: "inicjowanie": konwersja z "T" do "int", możliwa utrata danych
           with
           [
               T=float
           ]
-C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\Vendos\Camera.cpp(226,11): warning C4244: "inicjowanie": konwersja z "T" do "int", możliwa utrata danych
+C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\Vendos\Camera.cpp(230,11): warning C4244: "inicjowanie": konwersja z "T" do "int", możliwa utrata danych
           with
           [
               T=float
           ]
-C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\Vendos\Camera.cpp(227,11): warning C4244: "inicjowanie": konwersja z "T" do "int", możliwa utrata danych
+C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\Vendos\Camera.cpp(231,11): warning C4244: "inicjowanie": konwersja z "T" do "int", możliwa utrata danych
           with
           [
               T=float
           ]
-C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\Vendos\Camera.cpp(241,11): warning C4244: "inicjowanie": konwersja z "T" do "int", możliwa utrata danych
+C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\Vendos\Camera.cpp(245,11): warning C4244: "inicjowanie": konwersja z "T" do "int", możliwa utrata danych
           with
           [
               T=float
           ]
-C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\Vendos\Camera.cpp(242,11): warning C4244: "inicjowanie": konwersja z "T" do "int", możliwa utrata danych
+C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\Vendos\Camera.cpp(246,11): warning C4244: "inicjowanie": konwersja z "T" do "int", możliwa utrata danych
           with
           [
               T=float
           ]
-C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\Vendos\Camera.cpp(260,11): warning C4244: "inicjowanie": konwersja z "T" do "int", możliwa utrata danych
+C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\Vendos\Camera.cpp(264,11): warning C4244: "inicjowanie": konwersja z "T" do "int", możliwa utrata danych
           with
           [
               T=float
           ]
-C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\Vendos\Camera.cpp(261,11): warning C4244: "inicjowanie": konwersja z "T" do "int", możliwa utrata danych
+C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\Vendos\Camera.cpp(265,11): warning C4244: "inicjowanie": konwersja z "T" do "int", możliwa utrata danych
           with
           [
               T=float
           ]
-C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\Vendos\Camera.cpp(262,11): warning C4244: "inicjowanie": konwersja z "T" do "int", możliwa utrata danych
+C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\Vendos\Camera.cpp(266,11): warning C4244: "inicjowanie": konwersja z "T" do "int", możliwa utrata danych
           with
           [
               T=float
           ]
-C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\Vendos\Camera.cpp(263,11): warning C4244: "inicjowanie": konwersja z "T" do "int", możliwa utrata danych
+C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\Vendos\Camera.cpp(267,11): warning C4244: "inicjowanie": konwersja z "T" do "int", możliwa utrata danych
           with
           [
               T=float
           ]
-C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\Vendos\Camera.cpp(276,11): warning C4244: "inicjowanie": konwersja z "T" do "int", możliwa utrata danych
+C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\Vendos\Camera.cpp(280,11): warning C4244: "inicjowanie": konwersja z "T" do "int", możliwa utrata danych
           with
           [
               T=float
           ]
-C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\Vendos\Camera.cpp(277,11): warning C4244: "inicjowanie": konwersja z "T" do "int", możliwa utrata danych
+C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\Vendos\Camera.cpp(281,11): warning C4244: "inicjowanie": konwersja z "T" do "int", możliwa utrata danych
           with
           [
               T=float
           ]
-C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\Vendos\Camera.cpp(291,11): warning C4244: "inicjowanie": konwersja z "T" do "int", możliwa utrata danych
+C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\Vendos\Camera.cpp(295,11): warning C4244: "inicjowanie": konwersja z "T" do "int", możliwa utrata danych
           with
           [
               T=float
           ]
-C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\Vendos\Camera.cpp(292,11): warning C4244: "inicjowanie": konwersja z "T" do "int", możliwa utrata danych
+C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\Vendos\Camera.cpp(296,11): warning C4244: "inicjowanie": konwersja z "T" do "int", możliwa utrata danych
           with
           [
               T=float
           ]
-C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\Vendos\Camera.cpp(315,15): warning C4244: "inicjowanie": konwersja z "float" do "int", możliwa utrata danych
-C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\Vendos\Camera.cpp(317,23): warning C4244: "inicjowanie": konwersja z "int" do "float", możliwa utrata danych
-C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\Vendos\Camera.cpp(326,22): warning C4244: "inicjowanie": konwersja z "float" do "int", możliwa utrata danych
-C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\Vendos\Camera.cpp(353,47): warning C4244: "argument": konwersja z "float" do "T", możliwa utrata danych
+C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\Vendos\Camera.cpp(319,15): warning C4244: "inicjowanie": konwersja z "float" do "int", możliwa utrata danych
+C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\Vendos\Camera.cpp(321,23): warning C4244: "inicjowanie": konwersja z "int" do "float", możliwa utrata danych
+C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\Vendos\Camera.cpp(330,22): warning C4244: "inicjowanie": konwersja z "float" do "int", możliwa utrata danych
+C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\Vendos\Camera.cpp(357,47): warning C4244: "argument": konwersja z "float" do "T", możliwa utrata danych
           with
           [
               T=int
@@ -219,27 +219,14 @@ C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\Vendos\EntityPlayer
           ]
   Equipment.cpp
   Game.cpp
-  item.cpp
-  itemHoe.cpp
-  itemTool.cpp
   Main.cpp
   State.cpp
-C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\Vendos\State.cpp(57,38): warning C4244: "argument": konwersja z "T" do "const unsigned __int64", możliwa utrata danych
-          with
-          [
-              T=float
-          ]
-C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\Vendos\State.cpp(57,61): warning C4244: "argument": konwersja z "T" do "const unsigned __int64", możliwa utrata danych
-          with
-          [
-              T=float
-          ]
 C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\Vendos\State.cpp(64,38): warning C4244: "argument": konwersja z "T" do "const unsigned __int64", możliwa utrata danych
           with
           [
               T=float
           ]
-C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\Vendos\State.cpp(64,62): warning C4244: "argument": konwersja z "T" do "const unsigned __int64", możliwa utrata danych
+C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\Vendos\State.cpp(64,61): warning C4244: "argument": konwersja z "T" do "const unsigned __int64", możliwa utrata danych
           with
           [
               T=float
@@ -254,12 +241,22 @@ C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\Vendos\State.cpp(71
           [
               T=float
           ]
-C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\Vendos\State.cpp(80,29): warning C4244: "argument": konwersja z "T" do "const unsigned __int64", możliwa utrata danych
+C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\Vendos\State.cpp(78,38): warning C4244: "argument": konwersja z "T" do "const unsigned __int64", możliwa utrata danych
           with
           [
               T=float
           ]
-C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\Vendos\State.cpp(80,52): warning C4244: "argument": konwersja z "T" do "unsigned __int64", możliwa utrata danych
+C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\Vendos\State.cpp(78,62): warning C4244: "argument": konwersja z "T" do "const unsigned __int64", możliwa utrata danych
+          with
+          [
+              T=float
+          ]
+C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\Vendos\State.cpp(87,29): warning C4244: "argument": konwersja z "T" do "const unsigned __int64", możliwa utrata danych
+          with
+          [
+              T=float
+          ]
+C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\Vendos\State.cpp(87,52): warning C4244: "argument": konwersja z "T" do "unsigned __int64", możliwa utrata danych
           with
           [
               T=float
@@ -276,7 +273,14 @@ C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\Vendos\StateSpawnPl
           [
               T=float
           ]
+  item.cpp
+  itemAxe.cpp
+  itemHoe.cpp
+  itemPickaxe.cpp
+  itemShovel.cpp
+  itemSword.cpp
+  itemTool.cpp
+  itemWateringCan.cpp
   Generowanie kodu...
-C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\Vendos\Camera.cpp(69): warning C4715: "Camera::checkIfBackGroundMoveable”: niewszystkie ścieżki kodu zwracają wartość
-  LINK : nie znaleziono elementu C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\x64\Debug\Vendos.exe ani nie został on skompilowany podczas ostatniego konsolidowania przyrostowego; zostanie wykonana pełna konsolidacja
+C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\Vendos\Camera.cpp(73): warning C4715: "Camera::checkIfBackGroundMoveable”: niewszystkie ścieżki kodu zwracają wartość
   Vendos.vcxproj -> C:\Users\matib\source\repos\GITHUB\Programowanie\Vendos Zero\x64\Debug\Vendos.exe

@@ -11,8 +11,8 @@ StateSpawnPlace::StateSpawnPlace(GraphicsData* graphicsData, std::stack<State*>*
 
 StateSpawnPlace::~StateSpawnPlace()
 {
-	for (auto* elem : GraphicsSprite)
-		delete elem;
+	//for (auto* elem : GraphicsSprite)
+	//	delete elem;
 }
 
 void StateSpawnPlace::updateKeybinds(const float& dt)
@@ -39,7 +39,7 @@ void StateSpawnPlace::initGraphics()
 	LoadNewGraph({ 44 * 13, 44 * 12 }, "Tree2");
 	LoadNewGraph({ 44 * 15, 44 * 12 }, "Tree3");
 
-	this->Camer = new Camera(&this->GraphicsSprite,this->SpritesEntiPointer,this->graphicsData->window);
+	this->Camer = new Camera(this->graphicsData->GraphicsSprite ,this->SpritesEntiPointer,this->graphicsData->window);
 
 }
 
@@ -50,8 +50,8 @@ void StateSpawnPlace::initPlayer()
 
 void StateSpawnPlace::initBlockade()
 {
-	int x = this->GraphicsSprite.back()->getGlobalBounds().width;
-	int y = this->GraphicsSprite.back()->getGlobalBounds().height;
+	int x = this->graphicsData->GraphicsSprite->back()->getGlobalBounds().width;
+	int y = this->graphicsData->GraphicsSprite->back()->getGlobalBounds().height;
 	
 	this->Blockade.resize((x - (x % 44)) / 44, std::vector<bool>((y - (y % 44)) / 44));
 	this->BlockadeDimension.resize((x - (x % 44)) / 44, std::vector<sf::Vector2f>((y - (y % 44)) / 44));

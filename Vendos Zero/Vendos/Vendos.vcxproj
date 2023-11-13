@@ -25,8 +25,13 @@
     <ClCompile Include="Equipment.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="item.cpp" />
+    <ClCompile Include="itemAxe.cpp" />
     <ClCompile Include="itemHoe.cpp" />
+    <ClCompile Include="itemPickaxe.cpp" />
+    <ClCompile Include="itemShovel.cpp" />
+    <ClCompile Include="itemSword.cpp" />
     <ClCompile Include="itemTool.cpp" />
+    <ClCompile Include="itemWateringCan.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="State.cpp" />
     <ClCompile Include="StateMenu.cpp" />
@@ -39,8 +44,13 @@
     <ClInclude Include="Equipment.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="item.h" />
+    <ClInclude Include="itemAxe.h" />
     <ClInclude Include="itemHoe.h" />
+    <ClInclude Include="itemPickaxe.h" />
+    <ClInclude Include="itemShovel.h" />
+    <ClInclude Include="itemSword.h" />
     <ClInclude Include="itemTool.h" />
+    <ClInclude Include="itemWateringCan.h" />
     <ClInclude Include="StructuresOfData.h" />
     <ClInclude Include="State.h" />
     <ClInclude Include="StateMenu.h" />

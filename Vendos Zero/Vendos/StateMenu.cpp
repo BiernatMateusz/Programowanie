@@ -8,8 +8,8 @@ StateMenu::StateMenu(GraphicsData* graphicsData, std::stack<State*>* Stat)
 
 StateMenu::~StateMenu()
 {
-	for (auto* elem : GraphicsSprite)
-		delete elem;
+	//for (auto* elem : GraphicsSprite)
+	//	delete elem;
 }
 
 void StateMenu::updateKeybinds(const float& dt)
@@ -50,7 +50,7 @@ void StateMenu::initGraphics()
 {
 	LoadNewGraph({ 0,0 }, "Menu");
 
-	this->Camer = new Camera(&this->GraphicsSprite, this->graphicsData->window);
+	this->Camer = new Camera(this->graphicsData->GraphicsSprite, this->graphicsData->window);
 }
 
 void StateMenu::update(const float& dt)
