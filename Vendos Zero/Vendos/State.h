@@ -31,15 +31,19 @@ protected:
 
 	std::vector<Entity*> entities;
 	std::vector<Entity*> *entiesPointer;
-	
+	//Blockade
 	std::vector<std::vector<bool>>Blockade;
 	std::vector<std::vector<sf::Vector2f>>BlockadeDimension;
+
+	std::vector<std::vector<TilesOnMap*>>Tile;
+
+
 
 	Entity* NewEntity;
 	Camera* Camer;
 
 	std::vector<sf::Sprite*> GraphicsSprite;
-
+	std::vector<sf::Sprite*> TilesSprite;
 	std::vector<sf::Sprite*> SpritesEnti;
 	std::vector<sf::Sprite*> *SpritesEntiPointer;
 
@@ -66,7 +70,10 @@ public:
 	virtual void checkForQuit();
 	virtual void endState()=0;
 
-	void LoadNewGraph(sf::Vector2f&& position, std::string&& NameOfTxt);
+	void LoadBackground(sf::Vector2f&& position, std::string&& NameOfTxt);
+	void initTile(sf::Vector2i&& position2i,std::string&& NameOfTxt);
+	void updateTilesSprite();
+	void updateBlockades();
 };
 
 #endif 

@@ -7,22 +7,23 @@ bool operator>(const sf::Sprite &x,const sf::Sprite &y)
 
 
 //Constructors
-Camera::Camera(std::vector<sf::Sprite*>* GraphicsSpr, sf::RenderWindow* window)
+
+
+Camera::Camera(GraphicsData *graphicsData)
 {
-	initGraphicsBasics(GraphicsSpr, window);
-	sortVector();
-
-}
-
-Camera::Camera(std::vector<sf::Sprite*>* GraphicsSpr, std::vector<sf::Sprite*>* EntitySpr, sf::RenderWindow* window)
-{
-	this->Player = *EntitySpr->begin();
-
-	initGraphicsBasics(GraphicsSpr, window);
 	
-	this->CenterOfMap = EntitySpr->front()->getPosition();
-
-	AllSpritesPointer->insert(AllSpritesPointer->end(), EntitySpr->begin(), EntitySpr->end());
+	initGraphicsBasics(graphicsData);
+	
+	if (graphicsData->EntitiesSprite->size() > 0)
+	{
+		this->Player = *graphicsData->EntitiesSprite->begin();
+		this->CenterOfMap = graphicsData->EntitiesSprite->front()->getPosition();
+		AllSpritesPointer->insert(AllSpritesPointer->end(), graphicsData->EntitiesSprite->begin(), graphicsData->EntitiesSprite->end());
+	}
+	if (graphicsData->TilesSprite->size() > 0)
+	{
+		AllSpritesPointer->insert(AllSpritesPointer->end(), graphicsData->TilesSprite->begin(), graphicsData->TilesSprite->end());
+	}
 	sortVector();
 	
 }
@@ -35,12 +36,12 @@ Camera::~Camera()
 
 
 
-void Camera::initGraphicsBasics(std::vector<sf::Sprite*>* GraphicsSpr, sf::RenderWindow* window)
+void Camera::initGraphicsBasics(GraphicsData* graphicsData)
 {
-	this->BackGround = *GraphicsSpr->begin();
-	this->Window = window;
+	this->BackGround = graphicsData->backGround;
+	this->Window = graphicsData->window;
 	this->AllSpritesPointer = &this->AllSprites;
-	*this->AllSpritesPointer = *GraphicsSpr;
+	*this->AllSpritesPointer = *graphicsData->GraphicsSprite;
 }
 
 //Functions
@@ -86,51 +87,44 @@ void Camera::movePlayer(const float& dt, float speedX, float speedY)
 	this->Player->move(dt * speedX, dt * speedY);
 }
 
-bool Camera::CheckingPossibleMove(std::string&& direction, std::vector<std::vector<bool>>& blockade, std::vector<std::vector<sf::Vector2f>>& BlockadeDimension, const float& dt, float& speed)
+bool Camera::CheckingPossibleMove(std::string&& direction, std::vector<std::vector<bool>>& blockade, std::vector<std::vector<sf::Vector2f>>& BlockadeDimension,
+	const float& dt, float& speed)
 {
-
 	bool possible = 1;
-	int xleft = (this->Player->getPosition().x-11 - BackGround->getPosition().x) / 44;					//player x left (border) calculated to array dim
-	int ytop = (((this->Player->getPosition().y-15 - (BackGround->getPosition().y)) + 2596) / 44);	//player y top (border) calculated to array dim
-	int ybot = (((this->Player->getPosition().y- (BackGround->getPosition().y))+2596) / 44);			//Player y bot (border) calculated to array dim
-	int xright = (this->Player->getPosition().x-11 +30 - BackGround->getPosition().x) / 44;			//Player x right (border) calculated to array dim
 
-	float xleftRealPos = this->Player->getPosition().x-11 - BackGround->getPosition().x;
-	float xrightRealPos = this->Player->getPosition().x-11 + 30 - BackGround->getPosition().x;
+	int xleft = (this->Player->getPosition().x - 11 - BackGround->getPosition().x) / 44;					//player x left (border) calculated to array dim
+	int xright = (this->Player->getPosition().x - 11 + 30 - BackGround->getPosition().x) / 44;			//Player x right (border) calculated to array dim
+	int ytop = (((this->Player->getPosition().y - 15 - (BackGround->getPosition().y)) + 2596) / 44);		//player y top (border) calculated to array dim
+	int ybot = (((this->Player->getPosition().y - (BackGround->getPosition().y)) + 2596) / 44);			//Player y bot (border) calculated to array dim
+
+	float xleftRealPos = this->Player->getPosition().x - 11 - BackGround->getPosition().x;
+	float xrightRealPos = this->Player->getPosition().x - 11 + 30 - BackGround->getPosition().x;
 	float ybotRealPos = (this->Player->getPosition().y - (BackGround->getPosition().y)) + 2596;
 	float ytopRealPos = (this->Player->getPosition().y - 15 - (BackGround->getPosition().y)) + 2596;
-	
-	
+
 	//check possible positions for different blocks
 
 	//Done
-	if (direction=="left") //DONE
-	{
-		if (blockade[xleft][ybot] == 1 and blockade[xleft][ytop] == 1) // both squares on the left are blocked
+
+	if (direction == "left") //DONE
+	{//right points of blocks on the left side
+		int yC = (ybot) * 44 + ((44 - BlockadeDimension[xleft][ybot].y) / 2) + BlockadeDimension[xleft][ybot].y;
+		int yD = (ybot) * 44 + ((44 - BlockadeDimension[xleft][ybot].y) / 2);
+		int yE = (ybot - 1) * 44 + ((44 - BlockadeDimension[xleft][ybot - 1].y) / 2) + BlockadeDimension[xleft][ybot - 1].y;
+		int yF = (ybot - 1) * 44 + ((44 - BlockadeDimension[xleft][ybot - 1].y) / 2);
+
+		if (blockade[xleft][ybot] == 1 and blockade[xleft][ytop] == 1)
 		{
-			//right points of blocks on the left side
-			int yC = (ybot ) * 44 + ((44 - BlockadeDimension[xleft][ybot].y) / 2) + BlockadeDimension[xleft][ybot].y; // position Y - bottom block bottom corner absolute position
-			int yD = (ybot ) * 44 + ((44 - BlockadeDimension[xleft][ybot].y) / 2); // position Y - bottom block upper corner absolute position
-			int yE = (ybot-1) * 44 + ((44 - BlockadeDimension[xleft][ybot-1].y) / 2) + BlockadeDimension[xleft][ybot-1].y; // position Y - upper block bottom corner absolute position
-			int yF = (ybot-1) * 44 + ((44 - BlockadeDimension[xleft][ybot-1].y) / 2); ; // position Y - upper block upper corner absolute position
-			
-			
-			if(!(ybotRealPos<yD and ytopRealPos>yE)) //warunki - jezeli dolny punkt blokady jest nizej niz gorny punkt gracza oraz gorny punkt blokady wyzej niz dolny punkt gracza 
+			if (!(ybotRealPos<yD and ytopRealPos>yE))
 			{
-				if ((xleftRealPos-(dt*speed)) < (xleft * 44 + ((44 - BlockadeDimension[xleft][ybot].x) / 2) + BlockadeDimension[xleft][ybot].x))
+				if ((xleftRealPos - (dt * speed)) < (xleft * 44 + ((44 - BlockadeDimension[xleft][ybot].x) / 2) + BlockadeDimension[xleft][ybot].x))
 					possible = 0;
 			}
 		}
 
 		if (blockade[xleft][ybot] == 1 and blockade[xleft][ytop] == 0)
 		{
-			//right points of blocks on the left side
-			int yC = (ybot) * 44 + ((44 - BlockadeDimension[xleft][ybot].y) / 2) + BlockadeDimension[xleft][ybot].y; // position Y - bottom block bottom corner absolute position
-			int yD = (ybot) * 44 + ((44 - BlockadeDimension[xleft][ybot].y) / 2); // position Y - bottom block upper corner absolute position
-
-
-
-			if (!(ybotRealPos<yD)) //warunki - jezeli dolny punkt blokady jest nizej niz gorny punkt gracza oraz gorny punkt blokady wyzej niz dolny punkt gracza 
+			if (!(ybotRealPos < yD))
 			{
 				if ((xleftRealPos - (dt * speed)) < (xleft * 44 + ((44 - BlockadeDimension[xleft][ybot].x) / 2) + BlockadeDimension[xleft][ybot].x))
 					possible = 0;
@@ -140,32 +134,26 @@ bool Camera::CheckingPossibleMove(std::string&& direction, std::vector<std::vect
 		}
 		if (blockade[xleft][ybot] == 0 and blockade[xleft][ytop] == 1)
 		{
-			int yE = (ybot - 1) * 44 + ((44 - BlockadeDimension[xleft][ybot - 1].y) / 2) + BlockadeDimension[xleft][ybot - 1].y; // position Y - upper block bottom corner absolute position
-			int yF = (ybot - 1) * 44 + ((44 - BlockadeDimension[xleft][ybot - 1].y) / 2); ; // position Y - upper block upper corner absolute position
-
-			if (!(ytopRealPos > yE)) //warunki - jezeli dolny punkt blokady jest nizej niz gorny punkt gracza oraz gorny punkt blokady wyzej niz dolny punkt gracza 
+			if (!(ytopRealPos > yE))
 			{
-				//std::cout << (xleftRealPos + (dt * speed)) <<"    "<< (xleft * 44 + ((44 - BlockadeDimension[xleft][ytop].x) / 2) ) <<"\n";
 				if ((xleftRealPos - (dt * speed)) < (xleft * 44 + ((44 - BlockadeDimension[xleft][ytop].x) / 2) + BlockadeDimension[xleft][ytop].x))
 					possible = 0;
 			}
 		}
-
-	} //Done
+	}
 
 	//Done
 	if (direction == "right")
 	{
-		if (blockade[xright][ybot] == 1 and blockade[xright][ytop] == 1) // both squares on the left are blocked
+		//right points of blocks on the left side
+		int yC = (ybot) * 44 + ((44 - BlockadeDimension[xright][ybot].y) / 2) + BlockadeDimension[xright][ybot].y;
+		int yD = (ybot) * 44 + ((44 - BlockadeDimension[xright][ybot].y) / 2); 
+		int yE = (ybot - 1) * 44 + ((44 - BlockadeDimension[xright][ybot - 1].y) / 2) + BlockadeDimension[xright][ybot - 1].y; 
+		int yF = (ybot - 1) * 44 + ((44 - BlockadeDimension[xright][ybot - 1].y) / 2);
+
+		if (blockade[xright][ybot] == 1 and blockade[xright][ytop] == 1) 
 		{
-			//right points of blocks on the left side
-			int yC = (ybot) * 44 + ((44 - BlockadeDimension[xright][ybot].y) / 2) + BlockadeDimension[xright][ybot].y; // position Y - bottom block bottom corner absolute position
-			int yD = (ybot) * 44 + ((44 - BlockadeDimension[xright][ybot].y) / 2); // position Y - bottom block upper corner absolute position
-			int yE = (ybot - 1) * 44 + ((44 - BlockadeDimension[xright][ybot - 1].y) / 2) + BlockadeDimension[xright][ybot - 1].y; // position Y - upper block bottom corner absolute position
-			int yF = (ybot - 1) * 44 + ((44 - BlockadeDimension[xright][ybot - 1].y) / 2); ; // position Y - upper block upper corner absolute position
-
-
-			if (!(ybotRealPos<yD and ytopRealPos>yE)) //warunki - jezeli dolny punkt blokady jest nizej niz gorny punkt gracza oraz gorny punkt blokady wyzej niz dolny punkt gracza 
+			if (!(ybotRealPos<yD and ytopRealPos>yE)) 
 			{
 				if ((xrightRealPos+(dt*speed)) > (xright * 44 + ((44 - BlockadeDimension[xright][ybot].x) / 2)))
 					possible = 0;
@@ -174,12 +162,7 @@ bool Camera::CheckingPossibleMove(std::string&& direction, std::vector<std::vect
 
 		if (blockade[xright][ybot] == 1 and blockade[xright][ytop] == 0)
 		{
-			//right points of blocks on the left side
-			int yC = (ybot) * 44 + ((44 - BlockadeDimension[xright][ybot].y) / 2) + BlockadeDimension[xright][ybot].y; // position Y - bottom block bottom corner absolute position
-			int yD = (ybot) * 44 + ((44 - BlockadeDimension[xright][ybot].y) / 2); // position Y - bottom block upper corner absolute position
-
-			
-			if (!(ybotRealPos < yD)) //warunki - jezeli dolny punkt blokady jest nizej niz gorny punkt gracza oraz gorny punkt blokady wyzej niz dolny punkt gracza 
+			if (!(ybotRealPos < yD)) 
 			{
 				if ((xrightRealPos + (dt * speed)) > (xright * 44 + ((44 - BlockadeDimension[xright][ybot].x) / 2)))
 					possible = 0;
@@ -187,38 +170,30 @@ bool Camera::CheckingPossibleMove(std::string&& direction, std::vector<std::vect
 
 
 		}
+
 		if (blockade[xright][ybot] == 0 and blockade[xright][ytop] == 1)
 		{
-			int yE = (ybot - 1) * 44 + ((44 - BlockadeDimension[xright][ybot - 1].y) / 2) + BlockadeDimension[xright][ybot - 1].y; // position Y - upper block bottom corner absolute position
-			int yF = (ybot - 1) * 44 + ((44 - BlockadeDimension[xright][ybot - 1].y) / 2) ; // position Y - upper block upper corner absolute position
-
-			//std::cout << ytopRealPos << " >  " << yE << "\n";
-
-			if (!(ytopRealPos > yE)) //warunki - jezeli dolny punkt blokady jest nizej niz gorny punkt gracza oraz gorny punkt blokady wyzej niz dolny punkt gracza 
+			if (!(ytopRealPos > yE))
 			{
-
 				if ((xrightRealPos + (dt * speed)) > (xright * 44 + ((44 - BlockadeDimension[xright][ytop].x) / 2)))
 					possible = 0;
 			}
 		}
-	}
+	} //Done
 
-	//Done
+	
 	if (direction == "top")
 	{
-		if (blockade[xleft][ytop] == 1 and blockade[xright][ytop] == 1) // both squares on the top are blocked
+		//bottom points of blocks on the top side
+		int xC = (xleft) * 44 + ((44 - BlockadeDimension[xleft][ytop].x) / 2); 
+		int xD = (xleft) * 44 + ((44 - BlockadeDimension[xleft][ytop].x) / 2) + BlockadeDimension[xleft][ytop].x; 
+		int xE = (xleft + 1) * 44 + ((44 - BlockadeDimension[xleft + 1][ytop].x) / 2); 
+		int xF = (xleft + 1) * 44 + ((44 - BlockadeDimension[xleft + 1][ytop].x) / 2) + BlockadeDimension[xleft + 1][ytop].x; 
+
+		if (blockade[xleft][ytop] == 1 and blockade[xright][ytop] == 1) 
 		{
-			
-			//bottom points of blocks on the top side
-			int xC = (xleft) * 44 + ((44 - BlockadeDimension[xleft][ytop].x) / 2) ; // position Y - bottom block bottom corner absolute position
-			int xD = (xleft) * 44 + ((44 - BlockadeDimension[xleft][ytop].x) / 2) + BlockadeDimension[xleft][ytop].x; // position Y - bottom block upper corner absolute position
-			int xE = (xleft + 1) * 44 + ((44 - BlockadeDimension[xleft+1][ytop].x) / 2) ; // position Y - upper block bottom corner absolute position
-			int xF = (xleft + 1) * 44 + ((44 - BlockadeDimension[xleft+1][ytop].x) / 2) + BlockadeDimension[xleft + 1][ytop].x; // position Y - upper block upper corner absolute position
-
-
 			if (!(xleftRealPos>xD and xrightRealPos<xE))
 			{
-				//std::cout << "BLOK BARDZIEJ" <<"  " << xleftRealPos <<"  " << xrightRealPos << "          "<< xC<<" "<<xD<<" "<<xE<<" " <<xF<<"\n";
 				if ((ytopRealPos-(dt*speed)) < (ytop * 44 + ((44 - BlockadeDimension[xleft][ytop].x) / 2) + BlockadeDimension[xleft][ytop].x))
 					possible = 0;
 			}
@@ -226,47 +201,33 @@ bool Camera::CheckingPossibleMove(std::string&& direction, std::vector<std::vect
 
 		if (blockade[xleft][ytop] == 1 and blockade[xright][ytop] == 0)
 		{
-			//right points of blocks on the left side
-			int xC = (xleft) * 44 + ((44 - BlockadeDimension[xleft][ytop].x) / 2) ; // position Y - bottom block bottom corner absolute position
-			int xD = (xleft) * 44 + ((44 - BlockadeDimension[xleft][ytop].x) / 2) + BlockadeDimension[xleft][ytop].x; // position Y - bottom block upper corner absolute position
-
-			
-
 			if (!(xleftRealPos > xD)) 
 			{
 				if ((ytopRealPos - (dt * speed)) < (ytop * 44 + ((44 - BlockadeDimension[xleft][ytop].x) / 2) + BlockadeDimension[xleft][ytop].x))
 					possible = 0;
 			}
-
-
 		}
 		if (blockade[xleft][ytop] == 0 and blockade[xright][ytop] == 1)
 		{
-			int xE = (xleft + 1) * 44 + ((44 - BlockadeDimension[xleft + 1][ytop].x) / 2) ; // position Y - upper block bottom corner absolute position
-			int xF = (xleft + 1) * 44 + ((44 - BlockadeDimension[xleft + 1][ytop].x) / 2) + BlockadeDimension[xleft + 1][ytop].x; // position Y - upper block upper corner absolute position
-
-
 			if (!(xrightRealPos < xE)) 
 			{
 				if ((ytopRealPos - (dt * speed)) < (ytop * 44 + ((44 - BlockadeDimension[xright][ytop].x) / 2) + BlockadeDimension[xright][ytop].x))
 					possible = 0;
 			}
 		}
-	}
+	} //Done
 
-	//Done
+	
 	if (direction == "bot")
 	{
-		if (blockade[xleft][ybot] == 1 and blockade[xright][ybot] == 1) // both squares on the top are blocked
+		//top points of blocks on the bottom side
+		int xC = (xleft) * 44 + ((44 - BlockadeDimension[xleft][ybot].x) / 2); 
+		int xD = (xleft) * 44 + ((44 - BlockadeDimension[xleft][ybot].x) / 2) + BlockadeDimension[xleft][ybot].x; 
+		int xE = (xleft + 1) * 44 + ((44 - BlockadeDimension[xleft + 1][ybot].x) / 2); 
+		int xF = (xleft + 1) * 44 + ((44 - BlockadeDimension[xleft + 1][ybot].x) / 2) + BlockadeDimension[xleft + 1][ybot].x; 
+
+		if (blockade[xleft][ybot] == 1 and blockade[xright][ybot] == 1) 
 		{
-
-			//top points of blocks on the bottom side
-			int xC = (xleft) * 44 + ((44 - BlockadeDimension[xleft][ybot].x) / 2); // position Y - bottom block bottom corner absolute position
-			int xD = (xleft) * 44 + ((44 - BlockadeDimension[xleft][ybot].x) / 2) + BlockadeDimension[xleft][ybot].x; // position Y - bottom block upper corner absolute position
-			int xE = (xleft + 1) * 44 + ((44 - BlockadeDimension[xleft + 1][ybot].x) / 2); // position Y - upper block bottom corner absolute position
-			int xF = (xleft + 1) * 44 + ((44 - BlockadeDimension[xleft + 1][ybot].x) / 2) + BlockadeDimension[xleft + 1][ybot].x; // position Y - upper block upper corner absolute position
-
-
 			if (!(xleftRealPos > xD and xrightRealPos < xE))
 			{
 				if ((ybotRealPos+(dt*speed)) > (ybot * 44 + ((44 - BlockadeDimension[xleft][ybot].x) / 2) ))
@@ -276,26 +237,15 @@ bool Camera::CheckingPossibleMove(std::string&& direction, std::vector<std::vect
 
 		if (blockade[xleft][ybot] == 1 and blockade[xright][ybot] == 0)
 		{
-			//right points of blocks on the left side
-			int xC = (xleft) * 44 + ((44 - BlockadeDimension[xleft][ybot].x) / 2); // position Y - bottom block bottom corner absolute position
-			int xD = (xleft) * 44 + ((44 - BlockadeDimension[xleft][ybot].x) / 2) + BlockadeDimension[xleft][ybot].x; // position Y - bottom block upper corner absolute position
-
-
-
 			if (!(xleftRealPos > xD))
 			{
 				if ((ybotRealPos + (dt * speed)) > (ybot * 44 + ((44 - BlockadeDimension[xleft][ybot].x) / 2) ))
 					possible = 0;
 			}
 
-
 		}
 		if (blockade[xleft][ybot] == 0 and blockade[xright][ybot] == 1)
 		{
-			int xE = (xleft + 1) * 44 + ((44 - BlockadeDimension[xleft + 1][ybot].x) / 2); // position Y - upper block bottom corner absolute position
-			int xF = (xleft + 1) * 44 + ((44 - BlockadeDimension[xleft + 1][ybot].x) / 2) + BlockadeDimension[xleft + 1][ybot].x; // position Y - upper block upper corner absolute position
-
-
 			if (!(xrightRealPos < xE))
 			{
 				if ((ybotRealPos + (dt * speed)) > (ybot * 44 + ((44 - BlockadeDimension[xright][ybot].x) / 2) ))
@@ -369,7 +319,7 @@ void Camera::sortVector()
 		);
 }
 
-bool Camera::movementAll(const float& dt, std::vector<std::vector<bool>>& Blockade, std::vector<std::vector<sf::Vector2f>>& BlockadeDimension, float&& speed )
+bool Camera::movementAll(const float& dt, std::vector<std::vector<bool>>& Blockade, std::vector<std::vector<sf::Vector2f>>& BlockadeDimension, float&& speed)
 {
 	bool moved = 0;
 	std::string direction{};

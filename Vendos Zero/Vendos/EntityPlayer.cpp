@@ -1,10 +1,10 @@
 #include "EntityPlayer.h"
 
-EntityPlayer::EntityPlayer(sf::Vector2f position, std::string NameOfTxt, std::vector<sf::Sprite*>* Entit, std::map<std::string, sf::Texture*>* TexturesMap, sf::RenderWindow* Window)
-	: Entity(position, NameOfTxt, Entit,TexturesMap, Window)
+EntityPlayer::EntityPlayer(sf::Vector2f position, std::string NameOfTxt, GraphicsData *graphicsData)
+	: Entity(position, NameOfTxt, graphicsData)
 {
-	this->Enti = Entit;
-
+	//this->Enti = Entit;
+	
 	changeTexture();
 }
 
@@ -15,20 +15,18 @@ EntityPlayer::~EntityPlayer()
 
 void EntityPlayer::changeTexture()
 {
-	this->Enti->back()->setTextureRect(sf::IntRect(21, 20, 40, 85));
+	this->graphicsData->EntitiesSprite->back()->setTextureRect(sf::IntRect(21, 20, 40, 85));
 	
 
 	//Center of 
 	getCenterOfPlayer();
 
-	this->Enti->back()->setPosition(this->centerOfGame);
-
-	std::cout << this->Enti->back()->getGlobalBounds().width << "\n";
-	std::cout << this->Enti->back()->getGlobalBounds().height << "\n";
+	this->graphicsData->EntitiesSprite->back()->setPosition(this->centerOfGame);
 }
 
 void EntityPlayer::update(const float& dt)
 {
+
 }
 
 void EntityPlayer::movement(const float& dt)
@@ -38,8 +36,8 @@ void EntityPlayer::movement(const float& dt)
 
 void EntityPlayer::getCenterOfPlayer()
 {
-	centerOfGame.x = this->window->getSize().x / 2 - 60*0.85 / 2;
-	centerOfGame.y = this->window->getSize().y / 2 - 100*0.85 / 2;
+	centerOfGame.x = this->graphicsData->window->getSize().x / 2 - 40 / 2;
+	centerOfGame.y = this->graphicsData->window->getSize().y / 2 - 85 / 2;
 }
 
 sf::Vector2f EntityPlayer::Center()

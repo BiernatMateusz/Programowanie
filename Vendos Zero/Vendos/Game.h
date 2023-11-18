@@ -26,8 +26,12 @@ private:
 	std::map<std::string, sf::Texture*>TexturesMap;
 	std::map<std::string, sf::Texture*>*TexturesMapPtr=&TexturesMap;
 
-	GraphicsData graphicsDataX{};
-	GraphicsData* graphicsData = &graphicsDataX;
+	//Map with all data about graphics
+	std::map<std::string, TextureData*> TextureDataMap;
+
+	
+	GraphicsData* graphicsData;
+
 
 	float dt;
 
@@ -63,7 +67,8 @@ public:
 	void run();
 
 	//Additional functions
-	void LoadNewGraphic(std::string&& name);
+	void LoadNewGraphic(std::string&& name); //to delete
+	void LoadNewGraphic(std::string&& name, sf::Vector2i blockadeSize, sf::Vector2i origin, float offsetForPositon, bool blockade);
 	
 
 protected:

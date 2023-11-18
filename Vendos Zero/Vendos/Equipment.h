@@ -34,8 +34,6 @@ private:
 
 	sf::Texture* BottomBarChoosenTxtPtr;
 
-	std::vector<sf::Sprite*>BottomBarSprites;
-
 	//Vectors of items
 	const sf::Vector2i sizeOfEq{ 10,3 };
 
@@ -46,18 +44,12 @@ private:
 
 	//Other
 	sf::Vector2f MapBorder{};
-	
 
-	//Items
-	
-	
-	
 
 	//Additional functions
 	void changeBar();
 	void updateKeybinds();
 	void initGraphics();
-	void initBottomBar();
 	void calculatePositionOfFirstItem();
 
 	void initEqAndBar();

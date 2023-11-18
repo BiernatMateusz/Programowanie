@@ -109,12 +109,12 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <ReferencePath>C:\Users\matib\Desktop\SFML-2.5.1\include;$(ReferencePath)</ReferencePath>
-    <LibraryPath>C:\Users\matib\Desktop\SFML-2.5.1\lib;$(LibraryPath)</LibraryPath>
+    <ReferencePath>C:\Mateusz\SFML-2.5.1\include;$(ReferencePath)</ReferencePath>
+    <LibraryPath>C:\Mateusz\SFML-2.5.1\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <ReferencePath>C:\Users\matib\Desktop\SFML-2.5.1\include;$(ReferencePath)</ReferencePath>
-    <LibraryPath>C:\Users\matib\Desktop\SFML-2.5.1\lib;$(LibraryPath)</LibraryPath>
+    <ReferencePath>C:\Mateusz\SFML-2.5.1\include;$(ReferencePath)</ReferencePath>
+    <LibraryPath>C:\Mateusz\SFML-2.5.1\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>

@@ -11,17 +11,18 @@ void Game::initializeWindow()
 
 Game::Game()
 {
-	
+	this->graphicsData = new GraphicsData;
+	this->graphicsData->TextureDataMap = &this->TextureDataMap;
 	this->initializeWindow();
 	this->initTextures();
 	this->initStates();
 	
-
 }
 
 Game::~Game()
 {
 	delete this->window;
+	delete this->graphicsData;
 	while (!this->states.empty())
 	{
 		delete this->states.top();
@@ -96,6 +97,23 @@ void Game::LoadNewGraphic(std::string&& name)
 	this->graphicsData->GraphicsTxtVec->push_back(new sf::Texture);
 	this->graphicsData->GraphicsTxtVec->back()->loadFromFile("Texture/" + name + ".png");
 	this->graphicsData->TexturesMap->insert(std::pair<std::string, sf::Texture*>(name, this->graphicsData->GraphicsTxtVec->back()));
+
+	//new
+	this->TextureDataMap.insert(std::pair<std::string, TextureData*>(name, new TextureData));
+	this->TextureDataMap[name]->texture = new sf::Texture;
+	this->TextureDataMap[name]->texture->loadFromFile("Texture/" + name + ".png");
+}
+
+void Game::LoadNewGraphic(std::string&& name, sf::Vector2i blockadeSize,  sf::Vector2i origin, float offsetForPositon, bool blockade)
+{
+	this->TextureDataMap[name]->blockade = blockade;
+	this->TextureDataMap[name]->blockadeSize = blockadeSize;
+	this->TextureDataMap[name]->origin = origin;
+	this->TextureDataMap[name]->offsetForPositon = offsetForPositon;
+
+	LoadNewGraphic(std::move(name));
+	
+
 }
 
 void Game::initStates()
@@ -111,24 +129,30 @@ void Game::initTextures()
 	//Main menu
 	LoadNewGraphic("Menu");
 
+
 	//Terrain
 	LoadNewGraphic("Mapka");
 	LoadNewGraphic("Tree1");
 	LoadNewGraphic("Tree2");
 	LoadNewGraphic("Tree3");
+	LoadNewGraphic("Tree1", { 30,30 }, {50,-40},-15,1); 
+	LoadNewGraphic("Tree2", { 30,30 }, { 68,0 }, -15, 1); 
+	LoadNewGraphic("Tree3", { 30,20 }, { 47,-30 }, -15, 1); 
 
 	//Player
 	LoadNewGraphic("Abigail");
 
 	//Equipment
-	LoadNewGraphic("dziabka");
+	LoadNewGraphic("Dziabka");
 	LoadNewGraphic("Kilof");
-	LoadNewGraphic("siekiera");
+	LoadNewGraphic("Siekiera");
 	LoadNewGraphic("Miecz");
-	LoadNewGraphic("lopata");
-	LoadNewGraphic("konewka");
+	LoadNewGraphic("Lopata");
+	LoadNewGraphic("Konewka");
 
-	
+	//Field
+	LoadNewGraphic("PoDziabceSuche");
+	LoadNewGraphic("PoDziabceMokre");
 }
 
 void Game::initGraphicsData()

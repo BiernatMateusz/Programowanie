@@ -48,9 +48,9 @@ void StateMenu::initEquipment(GraphicsData* graphicsData)
 
 void StateMenu::initGraphics()
 {
-	LoadNewGraph({ 0,0 }, "Menu");
+	LoadBackground({ 0,0 }, "Menu");
 
-	this->Camer = new Camera(this->graphicsData->GraphicsSprite, this->graphicsData->window);
+	this->Camer = new Camera(this->graphicsData);
 }
 
 void StateMenu::update(const float& dt)

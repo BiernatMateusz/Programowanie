@@ -14,22 +14,7 @@ Equipment::Equipment(GraphicsData* graphicsData)
 	calculatePositionOfFirstItem();
 
 	initGraphics();
-	initBottomBar();
-}
-
-void Equipment::initBottomBar()
-{
-	//this->BottomBarSprites.push_back(this->graphicsData->SpritesMap["Miecz"]);
-	//this->BottomBarSprites.push_back(this->graphicsData->SpritesMap["Kilof"]);
-	//this->BottomBarSprites.push_back(this->graphicsData->SpritesMap["Siekiera"]);
-	//this->BottomBarSprites.push_back(this->graphicsData->SpritesMap["dziabka"]);
-	//this->BottomBarSprites.push_back(this->graphicsData->SpritesMap["konewka"]);
-	//this->BottomBarSprites.push_back(this->graphicsData->SpritesMap["lopata"]);
-
-	//while (BottomBarSprites.size() < this->NumberOfItems)
-	//{
-	//	BottomBarSprites.push_back(nullptr);
-	//}
+	//initBottomBar();
 }
 
 void Equipment::updateBottomBar()
@@ -159,7 +144,7 @@ void Equipment::initEqAndBar()
 
 	sf::Vector2i xyOfVec{ 0,0 };
 
-	this->Eq[xyOfVec.x][xyOfVec.y] = new itemHoe(this->graphicsData, this->equipmentData, xyOfVec, "dziabka");
+	this->Eq[xyOfVec.x][xyOfVec.y] = new itemHoe(this->graphicsData, this->equipmentData, xyOfVec, "Dziabka");
 
 	xyOfVec={ 1,0 };
 
@@ -167,11 +152,11 @@ void Equipment::initEqAndBar()
 
 	xyOfVec = { 2,0 };
 
-	this->Eq[xyOfVec.x][xyOfVec.y] = new itemPickaxe(this->graphicsData, this->equipmentData, xyOfVec, "konewka");
+	this->Eq[xyOfVec.x][xyOfVec.y] = new itemPickaxe(this->graphicsData, this->equipmentData, xyOfVec, "Konewka");
 
 	xyOfVec = { 3,0 };
 
-	this->Eq[xyOfVec.x][xyOfVec.y] = new itemAxe(this->graphicsData, this->equipmentData, xyOfVec, "siekiera");
+	this->Eq[xyOfVec.x][xyOfVec.y] = new itemAxe(this->graphicsData, this->equipmentData, xyOfVec, "Siekiera");
 
 	xyOfVec = { 4,0 };
 
@@ -179,7 +164,7 @@ void Equipment::initEqAndBar()
 
 	xyOfVec = { 5,0 };
 
-	this->Eq[xyOfVec.x][xyOfVec.y] = new itemSword(this->graphicsData, this->equipmentData, xyOfVec, "lopata");
+	this->Eq[xyOfVec.x][xyOfVec.y] = new itemSword(this->graphicsData, this->equipmentData, xyOfVec, "Lopata");
 
 
 

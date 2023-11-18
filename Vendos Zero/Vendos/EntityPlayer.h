@@ -11,7 +11,7 @@ private:
 protected:
 
 public:
-    EntityPlayer(sf::Vector2f position, std::string NameOfTxt, std::vector<sf::Sprite*>* Entit, std::map<std::string, sf::Texture*>* TexturesMap, sf::RenderWindow* Window);
+    EntityPlayer(sf::Vector2f position, std::string NameOfTxt, GraphicsData* graphicsData);
     ~EntityPlayer();
 
     void changeTexture();

@@ -30,12 +30,13 @@ private:
 	int lastDir{};
 
 	//Functions
-	void initGraphicsBasics(std::vector<sf::Sprite*>* GraphicsSpr, sf::RenderWindow* window);
+	void initGraphicsBasics(GraphicsData* graphicsData);
 
 	bool checkIfBackGroundMoveable(std::string direction);
 	void moveAllObjects(sf::Sprite * Excluded, const float& dt, float speedX, float speedY);
 	void movePlayer(const float& dt, float speedX, float speedY);
-	bool CheckingPossibleMove(std::string&& direction, std::vector<std::vector<bool>>& blockade, std::vector<std::vector<sf::Vector2f>>& BlockadeDimension, const float& dt, float & speed);
+	bool CheckingPossibleMove(std::string&& direction, std::vector<std::vector<bool>>& blockade, std::vector<std::vector<sf::Vector2f>>& BlockadeDimension, 
+		const float& dt, float & speed);
 	void PlayerAnimation(const float& dt, std::string&& direction);
 
 
@@ -43,12 +44,12 @@ private:
 protected:
 	sf::RenderWindow* Window;
 public:
-	Camera(std::vector<sf::Sprite*>* GraphicsSpr,sf::RenderWindow* window);
-	Camera(std::vector<sf::Sprite*>* GraphicsSpr, std::vector<sf::Sprite*>* EntitySpr, sf::RenderWindow* window);
+	Camera(GraphicsData* graphicsData);
 
 	~Camera();
 
 	void sortVector();
+
 
 	bool movementAll(const float& dt,std::vector<std::vector<bool>>&Blockade, std::vector<std::vector<sf::Vector2f>>& BlockadeDimension, float&& speed);
 

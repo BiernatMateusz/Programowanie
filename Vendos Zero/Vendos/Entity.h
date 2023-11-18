@@ -15,6 +15,8 @@ class Entity
 private:
 	
 protected:
+	GraphicsData* graphicsData;
+
 	sf::Texture* Texture{};
 	sf::Sprite* Sprite{};
 	std::vector<sf::Sprite*>* Enti{};
@@ -27,7 +29,7 @@ protected:
 	float speed{};
 	
 public:
-	Entity(sf::Vector2f position, std::string NameOfTxt, std::vector<sf::Sprite*>* Entit, std::map<std::string, sf::Texture*>* TexturesMap, sf::RenderWindow* Window);
+	Entity(sf::Vector2f position, std::string NameOfTxt, GraphicsData* graphicsData);
 	~Entity();
 
 	void initTexture(std::string&& NameOfTxt, sf::Vector2f&& position);
